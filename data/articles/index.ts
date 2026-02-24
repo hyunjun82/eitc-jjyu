@@ -25,13 +25,15 @@ export const spokeArticles: Record<string, Record<string, SpokeArticle>> = {
   절세팁: 절세팁Spokes,
 };
 
-export function getHubArticle(category: string): HubArticle | undefined {
-  return hubArticles[category];
+export function getHubArticle(
+  categorySlug: string
+): HubArticle | undefined {
+  return hubArticles[categorySlug];
 }
 
 export function getSpokeArticle(
-  category: string,
-  slug: string
+  categorySlug: string,
+  spokeSlug: string
 ): SpokeArticle | undefined {
-  return spokeArticles[category]?.[slug];
+  return spokeArticles[categorySlug]?.[spokeSlug];
 }
