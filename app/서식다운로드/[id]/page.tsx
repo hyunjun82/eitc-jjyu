@@ -90,7 +90,7 @@ export default async function FormDownloadPage({ params }: PageProps) {
         </div>
 
         {/* 수동 광고 - 다운로드 카드 아래 */}
-        <AdUnit slot="REPLACE_ME_DOWNLOAD" />
+        <AdUnit slot="1370939604" />
 
         {/* Related forms */}
         <div className="mt-10">

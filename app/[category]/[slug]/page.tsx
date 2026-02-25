@@ -241,7 +241,7 @@ export default async function SpokePage({ params }: PageProps) {
                 <>
                   {/* CTA - 중간 */}
                   <CalculatorCTA />
-                  <AdUnit slot="REPLACE_ME_MID" />
+                  <AdUnit slot="1370939604" />
                   <RelatedSpokes categorySlug={catSlug} currentSlug={spokeSlug} />
                 </>
               )}
@@ -251,7 +251,7 @@ export default async function SpokePage({ params }: PageProps) {
       </article>
 
       {/* 수동 광고 - 본문 하단 */}
-      <AdUnit slot="REPLACE_ME_BOTTOM" />
+      <AdUnit slot="1370939604" />
 
       {/* FAQ */}
       {article.faq.length > 0 && (
