@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   description:
     "2026년 근로장려금 신청자격, 신청방법, 지급액, 신청기간 총정리. 자녀장려금까지 한눈에 확인하세요.",
   keywords: ["근로장려금", "자녀장려금", "근로장려금 신청", "근로장려금 자격", "근로장려금 지급액", "홈택스"],
+  verification: {
+    google: "kPe6sAN7cMBDG2OVVWHcI8hH-BxkT5Zv6U8TVWTxuwI",
+    other: {
+      "naver-site-verification": ["1a137c99b52a6ecfcf48b61cc20c5cd3f06c08b5"],
+    },
+  },
   openGraph: {
     title: "장려금정보 - 2026 근로장려금 신청 가이드",
     description:
