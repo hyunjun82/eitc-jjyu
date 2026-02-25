@@ -27,7 +27,7 @@ export function AuthorBio({ categoryName, datePublished, dateModified }: AuthorB
                 장려금 에디터
               </span>
               <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[11px] font-medium text-blue-700">
-                세금·복지 정보 전문
+                금융·세무 전문
               </span>
               {categoryName && (
                 <span className="rounded-full border border-gray-200 bg-white px-2 py-0.5 text-[10px] font-medium text-gray-500">

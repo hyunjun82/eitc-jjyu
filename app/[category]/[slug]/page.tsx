@@ -286,7 +286,7 @@ export default async function SpokePage({ params }: PageProps) {
               "@type": "Person",
               name: "장려금 에디터",
               url: "https://eitc.jjyu.co.kr/about",
-              jobTitle: "세금·복지 정보 전문 에디터",
+              jobTitle: "금융·세무 콘텐츠 에디터",
               worksFor: {
                 "@type": "Organization",
                 name: "장려금정보",

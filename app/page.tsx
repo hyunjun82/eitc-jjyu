@@ -138,6 +138,46 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* WebApplication schema - 계산기 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "근로·자녀장려금 모의계산기",
+            description:
+              "2026년 근로장려금, 자녀장려금 예상 지급액을 간편하게 계산해 보세요.",
+            url: "https://eitc.jjyu.co.kr/#calculator",
+            applicationCategory: "FinanceApplication",
+            operatingSystem: "All",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "KRW",
+            },
+          }),
+        }}
+      />
+
+      {/* BreadcrumbList schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "홈",
+                item: "https://eitc.jjyu.co.kr",
+              },
+            ],
+          }),
+        }}
+      />
     </>
   );
 }

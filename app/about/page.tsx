@@ -46,7 +46,7 @@ export default function AboutPage() {
                 장려금 에디터
               </h1>
               <p className="mt-1 text-base text-gray-500">
-                세금·복지 정보 전문 에디터
+                금융·세무 콘텐츠 에디터
               </p>
               <Badge className="mt-2 bg-blue-600 text-white hover:bg-blue-600">
                 국세청 홈택스 기반 콘텐츠
@@ -204,7 +204,7 @@ export default function AboutPage() {
               "@type": "Person",
               name: "장려금 에디터",
               url: "https://eitc.jjyu.co.kr/about",
-              jobTitle: "세금·복지 정보 전문 에디터",
+              jobTitle: "금융·세무 콘텐츠 에디터",
               description:
                 "국세청 홈택스 기반으로 근로장려금, 자녀장려금 정보를 전문적으로 분석하고 전달하는 에디터입니다.",
               worksFor: {
@@ -217,6 +217,17 @@ export default function AboutPage() {
                 "근로장려금 지급액 계산",
                 "자녀장려금",
                 "홈택스 신청방법",
+                "양도소득세",
+                "종합부동산세",
+                "취득세",
+                "퇴직금",
+                "연말정산",
+                "원천징수",
+                "4대보험",
+                "국민연금",
+                "실업급여",
+                "주택연금",
+                "전세자금대출",
               ],
             },
           }),
