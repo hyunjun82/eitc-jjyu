@@ -131,63 +131,69 @@ export default async function SpokePage({ params }: PageProps) {
     <>
       {/* Breadcrumb */}
       <div className="border-b bg-white">
-        <div className="mx-auto max-w-3xl px-4 py-3">
-          <nav className="flex items-center gap-1 text-sm text-gray-500">
-            <Link href="/" className="hover:text-blue-600">
-              홈
-            </Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link href={`/${catSlug}`} className="hover:text-blue-600">
-              {catInfo.name}
-            </Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-gray-900 font-medium">{spokeSlug}</span>
-          </nav>
+        <div className="mx-auto max-w-5xl px-4 py-3 lg:flex lg:gap-8">
+          <div className="flex-1">
+            <nav className="flex items-center gap-1 text-sm text-gray-500">
+              <Link href="/" className="hover:text-blue-600">
+                홈
+              </Link>
+              <ChevronRight className="h-3.5 w-3.5" />
+              <Link href={`/${catSlug}`} className="hover:text-blue-600">
+                {catInfo.name}
+              </Link>
+              <ChevronRight className="h-3.5 w-3.5" />
+              <span className="text-gray-900 font-medium">{spokeSlug}</span>
+            </nav>
+          </div>
+          <div className="hidden lg:block w-64 shrink-0" />
         </div>
       </div>
 
       {/* Hero */}
       <section className="border-b bg-gradient-to-b from-blue-50 to-white">
-        <div className="mx-auto max-w-3xl px-4 py-12">
-          <Badge className="bg-blue-600 text-white hover:bg-blue-600 mb-4">
-            {catInfo.icon} {catInfo.name}
-          </Badge>
-          <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-            {article.h1}
-          </h1>
-          <p className="mt-3 text-base text-gray-500 leading-relaxed sm:text-lg">
-            {article.heroDescription}
-          </p>
-          <div className="mt-3 flex items-center gap-3 text-sm text-gray-400">
-            <Link
-              href="/about"
-              className="font-medium text-gray-500 hover:text-blue-600 transition-colors"
-            >
-              장려금 에디터
-            </Link>
-            {article.datePublished && (
-              <>
-                <span>|</span>
-                <time dateTime={article.datePublished}>
-                  {formatKoreanDate(article.datePublished)} 작성
-                </time>
-              </>
-            )}
-            {article.dateModified && article.dateModified !== article.datePublished && (
-              <>
-                <span>|</span>
-                <time dateTime={article.dateModified}>
-                  {formatKoreanDate(article.dateModified)} 수정
-                </time>
-              </>
-            )}
-          </div>
-          <div className="mt-4">
-            <ShareButtons title={article.title} />
-          </div>
+        <div className="mx-auto max-w-5xl px-4 py-12 lg:flex lg:gap-8">
+          <div className="flex-1">
+            <Badge className="bg-blue-600 text-white hover:bg-blue-600 mb-4">
+              {catInfo.icon} {catInfo.name}
+            </Badge>
+            <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+              {article.h1}
+            </h1>
+            <p className="mt-3 text-base text-gray-500 leading-relaxed sm:text-lg">
+              {article.heroDescription}
+            </p>
+            <div className="mt-3 flex items-center gap-3 text-sm text-gray-400">
+              <Link
+                href="/about"
+                className="font-medium text-gray-500 hover:text-blue-600 transition-colors"
+              >
+                장려금 에디터
+              </Link>
+              {article.datePublished && (
+                <>
+                  <span>|</span>
+                  <time dateTime={article.datePublished}>
+                    {formatKoreanDate(article.datePublished)} 작성
+                  </time>
+                </>
+              )}
+              {article.dateModified && article.dateModified !== article.datePublished && (
+                <>
+                  <span>|</span>
+                  <time dateTime={article.dateModified}>
+                    {formatKoreanDate(article.dateModified)} 수정
+                  </time>
+                </>
+              )}
+            </div>
+            <div className="mt-4">
+              <ShareButtons title={article.title} />
+            </div>
 
-          {/* CTA - 서론 아래 */}
-          <CalculatorCTA />
+            {/* CTA - 서론 아래 */}
+            <CalculatorCTA />
+          </div>
+          <div className="hidden lg:block w-64 shrink-0" />
         </div>
       </section>
 

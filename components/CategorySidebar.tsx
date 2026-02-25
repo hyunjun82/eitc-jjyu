@@ -36,7 +36,7 @@ export function CategorySidebar({ categorySlug, currentSlug }: CategorySidebarPr
                         isCurrent ? "text-blue-500" : "text-gray-300 group-hover:text-blue-400"
                       }`}
                     />
-                    <span className="truncate">{spoke.slug}</span>
+                    <span className="truncate">{spoke.title}</span>
                   </Link>
                 </li>
               );

@@ -10,6 +10,8 @@ const navItems = [
   { name: "지급액", href: "/지급액" },
   { name: "신청기간", href: "/신청기간" },
   { name: "자녀장려금", href: "/자녀장려금" },
+  { name: "절세팁", href: "/절세팁" },
+  { name: "서식다운로드", href: "/서식다운로드" },
 ];
 
 export function Header() {
