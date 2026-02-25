@@ -9,6 +9,7 @@ import { CategorySidebar } from "@/components/CategorySidebar";
 import { ShareButtons } from "@/components/ShareButtons";
 import { AuthorBio } from "@/components/AuthorBio";
 import { AdSlot } from "@/components/AdSlot";
+import { CalculatorCTA } from "@/components/CalculatorCTA";
 import { getSpokeArticle } from "@/data/articles";
 import { spokeArticles } from "@/data/articles";
 import { categories } from "@/data/categories";
@@ -183,6 +184,9 @@ export default async function SpokePage({ params }: PageProps) {
           <div className="mt-4">
             <ShareButtons title={article.title} />
           </div>
+
+          {/* CTA - 서론 아래 */}
+          <CalculatorCTA />
         </div>
       </section>
 
@@ -227,6 +231,8 @@ export default async function SpokePage({ params }: PageProps) {
 
               {showRelatedAfter && (
                 <>
+                  {/* CTA - 중간 */}
+                  <CalculatorCTA />
                   <AdSlot id="mid" />
                   <RelatedSpokes categorySlug={catSlug} currentSlug={spokeSlug} />
                 </>
