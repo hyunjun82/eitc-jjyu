@@ -1,7 +1,7 @@
 import type { HubArticle, SpokeArticle } from "@/lib/types";
 
 export const hub: HubArticle = {
-  categorySlug: "절세팁",
+  categorySlug: "tax-tips",
   title: "근로장려금 절세팁 | 중복수령·환급계좌·사후관리 가이드",
   h1: "근로장려금 절세팁 | 중복수령·환급계좌·사후관리 가이드",
   metaDescription:
@@ -12,19 +12,19 @@ export const hub: HubArticle = {
     "근로장려금을 최대한 효율적으로 받으려면? 중복수령, 환급계좌, 사후관리까지 알아두면 좋은 팁을 정리했어요!",
   spokes: [
     {
-      slug: "중복수령",
+      slug: "multiple-benefits",
       title: "근로장려금 중복수령 가능 여부",
       description:
         "다른 복지제도(기초생활보장, 자녀장려금 등)와 중복 수령이 가능한지 안내해요.",
     },
     {
-      slug: "환급계좌",
+      slug: "refund-account",
       title: "근로장려금 환급계좌 관리",
       description:
         "환급금 수령을 위한 계좌 등록·변경 방법과 유의사항을 안내해요.",
     },
     {
-      slug: "사후관리",
+      slug: "post-audit",
       title: "근로장려금 사후관리와 환수",
       description:
         "장려금 지급 후 사후검증과 환수 규정, 대비 방법을 안내해요.",
@@ -35,9 +35,9 @@ export const hub: HubArticle = {
 };
 
 export const spokes: Record<string, SpokeArticle> = {
-  중복수령: {
-    slug: "중복수령",
-    categorySlug: "절세팁",
+  "multiple-benefits": {
+    slug: "multiple-benefits",
+    categorySlug: "tax-tips",
     title: "근로장려금 중복수령 가능 여부 | 다른 복지제도와 병행 안내",
     h1: "근로장려금 중복수령 가능 여부 | 다른 복지제도와 병행 안내",
     metaDescription:
@@ -135,9 +135,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  환급계좌: {
-    slug: "환급계좌",
-    categorySlug: "절세팁",
+  "refund-account": {
+    slug: "refund-account",
+    categorySlug: "tax-tips",
     title: "근로장려금 환급계좌 관리 | 계좌 등록·변경·입금 안내",
     h1: "근로장려금 환급계좌 관리 | 계좌 등록·변경·입금 안내",
     metaDescription:
@@ -215,9 +215,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  사후관리: {
-    slug: "사후관리",
-    categorySlug: "절세팁",
+  "post-audit": {
+    slug: "post-audit",
+    categorySlug: "tax-tips",
     title: "근로장려금 사후관리와 환수 | 부정수급 방지 가이드",
     h1: "근로장려금 사후관리와 환수 | 부정수급 방지 가이드",
     metaDescription:

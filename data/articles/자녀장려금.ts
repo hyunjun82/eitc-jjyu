@@ -1,7 +1,7 @@
 import type { HubArticle, SpokeArticle } from "@/lib/types";
 
 export const hub: HubArticle = {
-  categorySlug: "자녀장려금",
+  categorySlug: "child-tax-credit",
   title: "2026 자녀장려금 총정리 | 자격요건·지급액·신청방법",
   h1: "2026 자녀장려금 총정리 | 자격요건·지급액·신청방법",
   metaDescription:
@@ -12,19 +12,19 @@ export const hub: HubArticle = {
     "자녀를 양육하는 저소득 가구를 위한 자녀장려금! 자격요건부터 신청방법까지 한눈에 정리했어요.",
   spokes: [
     {
-      slug: "자격요건",
+      slug: "requirements",
       title: "자녀장려금 자격요건",
       description:
         "자녀장려금 신청 자격요건과 소득·재산·자녀 기준을 안내해요.",
     },
     {
-      slug: "지급액계산",
+      slug: "calculation",
       title: "자녀장려금 지급액 계산",
       description:
         "자녀 1인당 최대 100만 원의 지급액 산정 방법을 안내해요.",
     },
     {
-      slug: "신청방법",
+      slug: "how-to-apply",
       title: "자녀장려금 신청방법",
       description:
         "자녀장려금 신청 방법과 근로장려금 동시 신청 안내를 해요.",
@@ -35,9 +35,9 @@ export const hub: HubArticle = {
 };
 
 export const spokes: Record<string, SpokeArticle> = {
-  자격요건: {
-    slug: "자격요건",
-    categorySlug: "자녀장려금",
+  requirements: {
+    slug: "requirements",
+    categorySlug: "child-tax-credit",
     title: "2026 자녀장려금 자격요건 | 소득·재산·자녀 기준 안내",
     h1: "2026 자녀장려금 자격요건 | 소득·재산·자녀 기준 안내",
     metaDescription:
@@ -119,9 +119,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-24",
   },
-  지급액계산: {
-    slug: "지급액계산",
-    categorySlug: "자녀장려금",
+  calculation: {
+    slug: "calculation",
+    categorySlug: "child-tax-credit",
     title: "2026 자녀장려금 지급액 계산 | 1인당 최대 100만 원",
     h1: "2026 자녀장려금 지급액 계산 | 1인당 최대 100만 원",
     metaDescription:
@@ -197,9 +197,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-24",
   },
-  신청방법: {
-    slug: "신청방법",
-    categorySlug: "자녀장려금",
+  "how-to-apply": {
+    slug: "how-to-apply",
+    categorySlug: "child-tax-credit",
     title: "자녀장려금 신청방법 | 근로장려금 동시 신청 가이드",
     h1: "자녀장려금 신청방법 | 근로장려금 동시 신청 가이드",
     metaDescription:

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { hubArticles } from "@/data/articles";
+import { categories } from "@/data/categories";
 
 interface RelatedSpokesProps {
   categorySlug: string;
@@ -9,6 +10,7 @@ interface RelatedSpokesProps {
 
 export function RelatedSpokes({ categorySlug, currentSlug }: RelatedSpokesProps) {
   const hub = hubArticles[categorySlug];
+  const catName = categories.find((c) => c.slug === categorySlug)?.name ?? categorySlug;
   if (!hub) return null;
 
   const allOtherSpokes = hub.spokes.filter((s) => s.slug !== currentSlug);
@@ -21,7 +23,7 @@ export function RelatedSpokes({ categorySlug, currentSlug }: RelatedSpokesProps)
     <section className="mb-8">
       <div className="rounded-xl border border-gray-200 bg-gray-50/50 p-5">
         <h3 className="text-sm font-bold text-gray-900 mb-3">
-          관련 {hub.categorySlug} 가이드도 확인해 보세요
+          관련 {catName} 가이드도 확인해 보세요
         </h3>
         <div className="space-y-2.5">
           {displaySpokes.map((spoke) => (
@@ -49,8 +51,8 @@ export function RelatedSpokes({ categorySlug, currentSlug }: RelatedSpokesProps)
             <ChevronRight className="h-4 w-4 shrink-0 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-0.5 transition-all" />
             <span className="text-sm font-medium text-gray-600 group-hover:text-blue-600 transition-colors">
               {hasMore
-                ? `${hub.categorySlug} ${allOtherSpokes.length}개 더 보기`
-                : `${hub.categorySlug} 가이드 전체 보기`}
+                ? `${catName} ${allOtherSpokes.length}개 더 보기`
+                : `${catName} 가이드 전체 보기`}
             </span>
           </Link>
         </div>

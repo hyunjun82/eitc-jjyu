@@ -89,8 +89,8 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { category, slug } = await params;
-  const catSlug = decodeURIComponent(category);
-  const spokeSlug = decodeURIComponent(slug);
+  const catSlug = category;
+  const spokeSlug = slug;
   const article = getSpokeArticle(catSlug, spokeSlug);
   if (!article) return {};
   return {
@@ -121,8 +121,8 @@ export async function generateMetadata({
 
 export default async function SpokePage({ params }: PageProps) {
   const { category, slug } = await params;
-  const catSlug = decodeURIComponent(category);
-  const spokeSlug = decodeURIComponent(slug);
+  const catSlug = category;
+  const spokeSlug = slug;
   const article = getSpokeArticle(catSlug, spokeSlug);
   const catInfo = categories.find((c) => c.slug === catSlug);
 
@@ -143,7 +143,7 @@ export default async function SpokePage({ params }: PageProps) {
                 {catInfo.name}
               </Link>
               <ChevronRight className="h-3.5 w-3.5" />
-              <span className="text-gray-900 font-medium">{spokeSlug}</span>
+              <span className="text-gray-900 font-medium truncate max-w-[160px]">{article.h1}</span>
             </nav>
           </div>
           <div className="hidden lg:block w-64 shrink-0" />
@@ -362,7 +362,7 @@ export default async function SpokePage({ params }: PageProps) {
               {
                 "@type": "ListItem",
                 position: 3,
-                name: spokeSlug,
+                name: article.h1,
                 item: `https://eitc.jjyu.co.kr/${catSlug}/${spokeSlug}`,
               },
             ],

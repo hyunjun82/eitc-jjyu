@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { hubArticles } from "@/data/articles";
+import { categories } from "@/data/categories";
 
 interface CategorySidebarProps {
   categorySlug: string;
@@ -9,6 +10,7 @@ interface CategorySidebarProps {
 
 export function CategorySidebar({ categorySlug, currentSlug }: CategorySidebarProps) {
   const hub = hubArticles[categorySlug];
+  const catName = categories.find((c) => c.slug === categorySlug)?.name ?? categorySlug;
   if (!hub) return null;
 
   return (
@@ -16,7 +18,7 @@ export function CategorySidebar({ categorySlug, currentSlug }: CategorySidebarPr
       <div className="sticky top-24">
         <nav className="rounded-xl border border-gray-200 bg-white p-4">
           <h3 className="text-sm font-bold text-gray-900 mb-3">
-            {hub.categorySlug} 가이드 목록
+            {catName} 가이드 목록
           </h3>
           <ul className="space-y-1">
             {hub.spokes.map((spoke) => {
@@ -49,7 +51,7 @@ export function CategorySidebar({ categorySlug, currentSlug }: CategorySidebarPr
               className="flex items-center gap-2 px-3 py-2 text-sm text-gray-500 hover:text-blue-600 transition-colors"
             >
               <ChevronRight className="h-3.5 w-3.5 shrink-0 text-gray-300" />
-              {hub.categorySlug} 전체 보기
+              {catName} 전체 보기
             </Link>
           </div>
         </nav>

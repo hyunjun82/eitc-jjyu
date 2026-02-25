@@ -8,7 +8,7 @@ export async function GET() {
   for (const hub of Object.values(hubArticles)) {
     allItems.push({
       title: hub.title,
-      url: `${BASE_URL}/${encodeURIComponent(hub.categorySlug)}`,
+      url: `${BASE_URL}/${hub.categorySlug}`,
       description: hub.metaDescription,
       date: hub.dateModified || hub.datePublished || "2026-02-24",
     });
@@ -18,7 +18,7 @@ export async function GET() {
     for (const article of Object.values(articles)) {
       allItems.push({
         title: article.title,
-        url: `${BASE_URL}/${encodeURIComponent(category)}/${encodeURIComponent(article.slug)}`,
+        url: `${BASE_URL}/${category}/${article.slug}`,
         description: article.metaDescription,
         date: article.dateModified || article.datePublished || "2026-02-24",
       });

@@ -1,7 +1,7 @@
 import type { HubArticle, SpokeArticle } from "@/lib/types";
 
 export const hub: HubArticle = {
-  categorySlug: "지급액",
+  categorySlug: "payment",
   title: "2026 근로장려금 지급액 | 가구유형별 최대 금액·계산방법",
   h1: "2026 근로장려금 지급액 | 가구유형별 최대 금액·계산방법",
   metaDescription:
@@ -12,31 +12,31 @@ export const hub: HubArticle = {
     "내가 받을 수 있는 근로장려금은 얼마일까요? 가구유형별 최대 지급액과 정확한 계산방법을 확인해 보세요!",
   spokes: [
     {
-      slug: "단독가구",
+      slug: "single",
       title: "단독가구 근로장려금 지급액",
       description:
         "단독가구의 근로장려금 최대 165만 원과 소득구간별 산정 방법을 안내해요.",
     },
     {
-      slug: "홑벌이가구",
+      slug: "single-income",
       title: "홑벌이가구 근로장려금 지급액",
       description:
         "홑벌이가구의 근로장려금 최대 285만 원과 소득구간별 산정 방법을 안내해요.",
     },
     {
-      slug: "맞벌이가구",
+      slug: "dual-income",
       title: "맞벌이가구 근로장려금 지급액",
       description:
         "맞벌이가구의 근로장려금 최대 330만 원과 소득구간별 산정 방법을 안내해요.",
     },
     {
-      slug: "계산방법",
+      slug: "calculation",
       title: "근로장려금 계산방법 상세 가이드",
       description:
         "근로장려금 산정 공식과 계산 방법을 예시와 함께 자세히 설명해요.",
     },
     {
-      slug: "모의계산",
+      slug: "simulator",
       title: "근로장려금 모의계산 가이드",
       description:
         "근로장려금 예상 수령액을 직접 계산해 보는 방법과 모의계산 도구 활용법을 안내해요.",
@@ -47,9 +47,9 @@ export const hub: HubArticle = {
 };
 
 export const spokes: Record<string, SpokeArticle> = {
-  단독가구: {
-    slug: "단독가구",
-    categorySlug: "지급액",
+  single: {
+    slug: "single",
+    categorySlug: "payment",
     title: "단독가구 근로장려금 지급액 | 최대 165만 원 산정 기준",
     h1: "단독가구 근로장려금 지급액 | 최대 165만 원 산정 기준",
     metaDescription:
@@ -133,9 +133,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  홑벌이가구: {
-    slug: "홑벌이가구",
-    categorySlug: "지급액",
+  "single-income": {
+    slug: "single-income",
+    categorySlug: "payment",
     title: "홑벌이가구 근로장려금 지급액 | 최대 285만 원 산정 기준",
     h1: "홑벌이가구 근로장려금 지급액 | 최대 285만 원 산정 기준",
     metaDescription:
@@ -219,9 +219,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  맞벌이가구: {
-    slug: "맞벌이가구",
-    categorySlug: "지급액",
+  "dual-income": {
+    slug: "dual-income",
+    categorySlug: "payment",
     title: "맞벌이가구 근로장려금 지급액 | 최대 330만 원 산정 기준",
     h1: "맞벌이가구 근로장려금 지급액 | 최대 330만 원 산정 기준",
     metaDescription:
@@ -305,9 +305,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  계산방법: {
-    slug: "계산방법",
-    categorySlug: "지급액",
+  calculation: {
+    slug: "calculation",
+    categorySlug: "payment",
     title: "근로장려금 계산방법 상세 가이드 | 산정 공식과 예시",
     h1: "근로장려금 계산방법 상세 가이드 | 산정 공식과 예시",
     metaDescription:
@@ -399,9 +399,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  모의계산: {
-    slug: "모의계산",
-    categorySlug: "지급액",
+  simulator: {
+    slug: "simulator",
+    categorySlug: "payment",
     title: "근로장려금 모의계산 가이드 | 예상 수령액 계산기 활용법",
     h1: "근로장려금 모의계산 가이드 | 예상 수령액 계산기 활용법",
     metaDescription:

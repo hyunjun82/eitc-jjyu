@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${form.title} 다운로드 | 장려금정보`,
     description: form.description,
     alternates: {
-      canonical: `https://eitc.jjyu.co.kr/서식다운로드/${id}`,
+      canonical: `https://eitc.jjyu.co.kr/forms/${id}`,
     },
   };
 }
@@ -43,7 +43,7 @@ export default async function FormDownloadPage({ params }: PageProps) {
               홈
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/서식다운로드" className="hover:text-blue-600">
+            <Link href="/forms" className="hover:text-blue-600">
               서식 다운로드
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -103,7 +103,7 @@ export default async function FormDownloadPage({ params }: PageProps) {
               .map((f) => (
                 <Link
                   key={f.id}
-                  href={`/서식다운로드/${f.id}`}
+                  href={`/forms/${f.id}`}
                   className="group flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 transition-all hover:border-blue-200 hover:shadow-sm"
                 >
                   <FileText className="h-5 w-5 shrink-0 text-gray-400 group-hover:text-blue-500" />
@@ -122,7 +122,7 @@ export default async function FormDownloadPage({ params }: PageProps) {
         {/* Back link */}
         <div className="py-8 flex gap-4">
           <Link
-            href="/서식다운로드"
+            href="/forms"
             className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -140,8 +140,8 @@ export default async function FormDownloadPage({ params }: PageProps) {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "홈", item: "https://eitc.jjyu.co.kr" },
-              { "@type": "ListItem", position: 2, name: "서식 다운로드", item: "https://eitc.jjyu.co.kr/서식다운로드" },
-              { "@type": "ListItem", position: 3, name: form.title, item: `https://eitc.jjyu.co.kr/서식다운로드/${id}` },
+              { "@type": "ListItem", position: 2, name: "서식 다운로드", item: "https://eitc.jjyu.co.kr/forms" },
+              { "@type": "ListItem", position: 3, name: form.title, item: `https://eitc.jjyu.co.kr/forms/${id}` },
             ],
           }),
         }}

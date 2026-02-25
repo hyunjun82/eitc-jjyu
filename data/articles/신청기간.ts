@@ -1,7 +1,7 @@
 import type { HubArticle, SpokeArticle } from "@/lib/types";
 
 export const hub: HubArticle = {
-  categorySlug: "신청기간",
+  categorySlug: "schedule",
   title: "2026 근로장려금 신청기간 | 정기·반기·기한후 신청일정",
   h1: "2026 근로장려금 신청기간 | 정기·반기·기한후 신청일정",
   metaDescription:
@@ -12,19 +12,19 @@ export const hub: HubArticle = {
     "근로장려금 신청, 언제 해야 할까요? 정기·반기·기한후 신청 일정을 확인하고, 가장 유리한 시기에 신청하세요!",
   spokes: [
     {
-      slug: "정기신청",
+      slug: "regular",
       title: "근로장려금 정기신청 기간",
       description:
         "매년 5월 정기신청 일정, 지급 시기, 유의사항을 안내해요.",
     },
     {
-      slug: "반기신청",
+      slug: "semi-annual",
       title: "근로장려금 반기신청 기간",
       description:
         "상반기·하반기 반기신청 일정과 정기신청과의 차이를 안내해요.",
     },
     {
-      slug: "기한후신청",
+      slug: "late-filing",
       title: "근로장려금 기한후 신청",
       description:
         "정기신청을 놓쳤을 때 기한후 신청 방법과 감액 규정을 안내해요.",
@@ -35,9 +35,9 @@ export const hub: HubArticle = {
 };
 
 export const spokes: Record<string, SpokeArticle> = {
-  정기신청: {
-    slug: "정기신청",
-    categorySlug: "신청기간",
+  regular: {
+    slug: "regular",
+    categorySlug: "schedule",
     title: "2026 근로장려금 정기신청 기간 | 5월 신청 일정 안내",
     h1: "2026 근로장려금 정기신청 기간 | 5월 신청 일정 안내",
     metaDescription:
@@ -144,9 +144,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  반기신청: {
-    slug: "반기신청",
-    categorySlug: "신청기간",
+  "semi-annual": {
+    slug: "semi-annual",
+    categorySlug: "schedule",
     title: "근로장려금 반기신청 기간 | 상반기·하반기 신청 일정",
     h1: "근로장려금 반기신청 기간 | 상반기·하반기 신청 일정",
     metaDescription:
@@ -242,9 +242,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  기한후신청: {
-    slug: "기한후신청",
-    categorySlug: "신청기간",
+  "late-filing": {
+    slug: "late-filing",
+    categorySlug: "schedule",
     title: "근로장려금 기한후 신청 | 정기신청 놓쳤을 때 대처법",
     h1: "근로장려금 기한후 신청 | 정기신청 놓쳤을 때 대처법",
     metaDescription:

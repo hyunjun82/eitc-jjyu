@@ -11,8 +11,8 @@ function getAllUrls(): string[] {
   const urls: string[] = [
     SITE_URL,
     `${SITE_URL}/about`,
-    `${SITE_URL}/서식다운로드`,
-    ...forms.map((f) => `${SITE_URL}/서식다운로드/${f.id}`),
+    `${SITE_URL}/forms`,
+    ...forms.map((f) => `${SITE_URL}/forms/${f.id}`),
   ];
 
   for (const cat of categories) {

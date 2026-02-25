@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "국세청 공식 근로장려금·자녀장려금 서식을 다운로드하세요. 신청서, 신청 확인서, 이의신청서, 환급계좌 변경 신고서 양식을 제공해요.",
   alternates: {
-    canonical: "https://eitc.jjyu.co.kr/서식다운로드",
+    canonical: "https://eitc.jjyu.co.kr/forms",
   },
 };
 
@@ -50,7 +50,7 @@ export default function FormsDownloadPage() {
           {forms.map((form) => (
             <Link
               key={form.id}
-              href={`/서식다운로드/${form.id}`}
+              href={`/forms/${form.id}`}
               className="group block rounded-xl border border-gray-200 bg-white p-5 transition-all hover:border-blue-300 hover:shadow-md"
             >
               <div className="flex items-start gap-4">
@@ -111,7 +111,7 @@ export default function FormsDownloadPage() {
             name: "근로장려금 서식 다운로드",
             description:
               "국세청 공식 근로장려금·자녀장려금 서식을 다운로드하세요.",
-            url: "https://eitc.jjyu.co.kr/서식다운로드",
+            url: "https://eitc.jjyu.co.kr/forms",
             mainEntity: {
               "@type": "ItemList",
               itemListElement: forms.map((form, i) => ({
@@ -119,7 +119,7 @@ export default function FormsDownloadPage() {
                 position: i + 1,
                 name: form.title,
                 description: form.description,
-                url: `https://eitc.jjyu.co.kr/서식다운로드/${form.id}`,
+                url: `https://eitc.jjyu.co.kr/forms/${form.id}`,
               })),
             },
           }),

@@ -1,7 +1,7 @@
 import type { HubArticle, SpokeArticle } from "@/lib/types";
 
 export const hub: HubArticle = {
-  categorySlug: "신청자격",
+  categorySlug: "eligibility",
   title: "2026 근로장려금 신청자격 총정리 | 소득·재산·가구유형 요건",
   h1: "2026 근로장려금 신청자격 총정리 | 소득·재산·가구유형 요건",
   metaDescription:
@@ -12,36 +12,36 @@ export const hub: HubArticle = {
     "2026년 근로장려금 신청자격이 궁금하신가요? 소득·재산·가구유형별 요건을 꼼꼼히 확인하고, 내가 대상자인지 바로 알아보세요!",
   spokes: [
     {
-      slug: "소득요건",
+      slug: "income",
       title: "2026 근로장려금 소득요건",
       description:
         "가구유형별 총소득 기준금액과 소득 산정 방법을 자세히 안내해요.",
     },
     {
-      slug: "재산요건",
+      slug: "asset",
       title: "2026 근로장려금 재산요건",
       description:
         "재산 합계 2.4억 원 미만 기준과 재산 범위, 부채 차감 여부를 설명해요.",
     },
     {
-      slug: "가구유형",
+      slug: "household-type",
       title: "근로장려금 가구유형 구분 기준",
       description:
         "단독가구, 홑벌이가구, 맞벌이가구의 분류 기준과 차이를 정리했어요.",
     },
     {
-      slug: "제외대상",
+      slug: "exclusions",
       title: "근로장려금 신청 제외대상",
       description:
         "근로장려금을 신청할 수 없는 대상자와 제외 사유를 안내해요.",
     },
     {
-      slug: "알바일용직",
+      slug: "part-time-worker",
       title: "알바·일용직 근로장려금 신청자격",
       description: "아르바이트, 일용직 근로자의 근로장려금 신청 자격과 소득 산정 방법을 안내해요.",
     },
     {
-      slug: "대학생알바",
+      slug: "student-worker",
       title: "대학생 알바 근로장려금 신청 가이드",
       description: "대학생 아르바이트생의 근로장려금 신청 자격, 부양가족 이슈, 유의사항을 안내해요.",
     },
@@ -51,9 +51,9 @@ export const hub: HubArticle = {
 };
 
 export const spokes: Record<string, SpokeArticle> = {
-  소득요건: {
-    slug: "소득요건",
-    categorySlug: "신청자격",
+  income: {
+    slug: "income",
+    categorySlug: "eligibility",
     title: "2026 근로장려금 소득요건 | 가구유형별 총소득 기준금액",
     h1: "2026 근로장려금 소득요건 | 가구유형별 총소득 기준금액",
     metaDescription:
@@ -161,9 +161,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  재산요건: {
-    slug: "재산요건",
-    categorySlug: "신청자격",
+  asset: {
+    slug: "asset",
+    categorySlug: "eligibility",
     title: "2026 근로장려금 재산요건 | 재산 2.4억 미만 기준 상세 안내",
     h1: "2026 근로장려금 재산요건 | 재산 2.4억 미만 기준 상세 안내",
     metaDescription:
@@ -272,9 +272,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  가구유형: {
-    slug: "가구유형",
-    categorySlug: "신청자격",
+  "household-type": {
+    slug: "household-type",
+    categorySlug: "eligibility",
     title: "근로장려금 가구유형 구분 기준 | 단독·홑벌이·맞벌이 분류",
     h1: "근로장려금 가구유형 구분 기준 | 단독·홑벌이·맞벌이 분류",
     metaDescription:
@@ -363,9 +363,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  제외대상: {
-    slug: "제외대상",
-    categorySlug: "신청자격",
+  exclusions: {
+    slug: "exclusions",
+    categorySlug: "eligibility",
     title: "근로장려금 신청 제외대상 | 신청 불가 사유 총정리",
     h1: "근로장려금 신청 제외대상 | 신청 불가 사유 총정리",
     metaDescription:
@@ -443,9 +443,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-25",
   },
-  알바일용직: {
-    slug: "알바일용직",
-    categorySlug: "신청자격",
+  "part-time-worker": {
+    slug: "part-time-worker",
+    categorySlug: "eligibility",
     title: "알바·일용직 근로장려금 신청자격 | 아르바이트·일용근로자 가이드",
     h1: "알바·일용직 근로장려금 신청자격 | 아르바이트·일용근로자 가이드",
     metaDescription:
@@ -515,9 +515,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-25",
     dateModified: "2026-02-25",
   },
-  대학생알바: {
-    slug: "대학생알바",
-    categorySlug: "신청자격",
+  "student-worker": {
+    slug: "student-worker",
+    categorySlug: "eligibility",
     title: "대학생 알바 근로장려금 신청 가이드 | 자격요건·부양가족 이슈",
     h1: "대학생 알바 근로장려금 신청 가이드 | 자격요건·부양가족 이슈",
     metaDescription:

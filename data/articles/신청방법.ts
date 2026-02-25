@@ -1,7 +1,7 @@
 import type { HubArticle, SpokeArticle } from "@/lib/types";
 
 export const hub: HubArticle = {
-  categorySlug: "신청방법",
+  categorySlug: "how-to-apply",
   title: "근로장려금 신청방법 가이드 | 홈택스·손택스·ARS 총정리",
   h1: "근로장려금 신청방법 가이드 | 홈택스·손택스·ARS 총정리",
   metaDescription:
@@ -12,37 +12,37 @@ export const hub: HubArticle = {
     "근로장려금 신청, 어떻게 해야 할지 막막하셨나요? 홈택스부터 세무서 방문까지, 채널별 신청 방법을 쉽게 정리했어요!",
   spokes: [
     {
-      slug: "홈택스신청",
+      slug: "hometax",
       title: "홈택스로 근로장려금 신청하기",
       description:
         "PC에서 국세청 홈택스를 통해 근로장려금을 신청하는 방법을 단계별로 안내해요.",
     },
     {
-      slug: "손택스신청",
+      slug: "sontax",
       title: "손택스(모바일)로 근로장려금 신청하기",
       description:
         "스마트폰 손택스 앱으로 간편하게 근로장려금을 신청하는 방법을 안내해요.",
     },
     {
-      slug: "ARS신청",
+      slug: "ars",
       title: "ARS 전화로 근로장려금 신청하기",
       description:
         "전화 ARS를 이용해 근로장려금을 신청하는 방법과 절차를 안내해요.",
     },
     {
-      slug: "세무서방문",
+      slug: "tax-office",
       title: "세무서 방문하여 근로장려금 신청하기",
       description:
         "가까운 세무서에 직접 방문하여 근로장려금을 신청하는 방법을 안내해요.",
     },
     {
-      slug: "대상자조회",
+      slug: "check-status",
       title: "근로장려금 대상자 조회 방법",
       description:
         "내가 근로장려금 대상자인지 홈택스·손택스에서 확인하는 방법을 안내해요.",
     },
     {
-      slug: "자동신청",
+      slug: "auto-apply",
       title: "근로장려금 자동신청 제도",
       description:
         "근로장려금 자동신청(동의) 제도의 대상, 신청 방법, 해지 방법을 안내해요.",
@@ -53,9 +53,9 @@ export const hub: HubArticle = {
 };
 
 export const spokes: Record<string, SpokeArticle> = {
-  홈택스신청: {
-    slug: "홈택스신청",
-    categorySlug: "신청방법",
+  hometax: {
+    slug: "hometax",
+    categorySlug: "how-to-apply",
     title: "홈택스로 근로장려금 신청하기 | PC 온라인 신청 방법",
     h1: "홈택스로 근로장려금 신청하기 | PC 온라인 신청 방법",
     metaDescription:
@@ -151,9 +151,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-24",
   },
-  손택스신청: {
-    slug: "손택스신청",
-    categorySlug: "신청방법",
+  sontax: {
+    slug: "sontax",
+    categorySlug: "how-to-apply",
     title: "손택스(모바일)로 근로장려금 신청하기 | 스마트폰 앱 가이드",
     h1: "손택스(모바일)로 근로장려금 신청하기 | 스마트폰 앱 가이드",
     metaDescription:
@@ -235,9 +235,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-24",
   },
-  ARS신청: {
-    slug: "ARS신청",
-    categorySlug: "신청방법",
+  ars: {
+    slug: "ars",
+    categorySlug: "how-to-apply",
     title: "ARS 전화로 근로장려금 신청하기 | 1544-9944 전화 신청",
     h1: "ARS 전화로 근로장려금 신청하기 | 1544-9944 전화 신청",
     metaDescription:
@@ -317,9 +317,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-24",
   },
-  세무서방문: {
-    slug: "세무서방문",
-    categorySlug: "신청방법",
+  "tax-office": {
+    slug: "tax-office",
+    categorySlug: "how-to-apply",
     title: "세무서 방문하여 근로장려금 신청하기 | 직접 방문 가이드",
     h1: "세무서 방문하여 근로장려금 신청하기 | 직접 방문 가이드",
     metaDescription:
@@ -397,9 +397,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-24",
     dateModified: "2026-02-24",
   },
-  대상자조회: {
-    slug: "대상자조회",
-    categorySlug: "신청방법",
+  "check-status": {
+    slug: "check-status",
+    categorySlug: "how-to-apply",
     title: "근로장려금 대상자 조회 방법 | 홈택스·손택스 자격 확인",
     h1: "근로장려금 대상자 조회 방법 | 홈택스·손택스 자격 확인",
     metaDescription:
@@ -499,9 +499,9 @@ export const spokes: Record<string, SpokeArticle> = {
     datePublished: "2026-02-25",
     dateModified: "2026-02-25",
   },
-  자동신청: {
-    slug: "자동신청",
-    categorySlug: "신청방법",
+  "auto-apply": {
+    slug: "auto-apply",
+    categorySlug: "how-to-apply",
     title: "근로장려금 자동신청 제도 안내 | 동의·해지 방법",
     h1: "근로장려금 자동신청 제도 안내 | 동의·해지 방법",
     metaDescription:

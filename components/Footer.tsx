@@ -17,7 +17,7 @@ export function Footer() {
               작성자 소개
             </Link>
             <span>|</span>
-            <Link href="/서식다운로드" className="hover:text-gray-600">
+            <Link href="/forms" className="hover:text-gray-600">
               서식 다운로드
             </Link>
             <span>|</span>

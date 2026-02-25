@@ -8,21 +8,21 @@ import { hub as 자녀장려금Hub, spokes as 자녀장려금Spokes } from "./�
 import { hub as 절세팁Hub, spokes as 절세팁Spokes } from "./절세팁";
 
 export const hubArticles: Record<string, HubArticle> = {
-  신청자격: 신청자격Hub,
-  신청방법: 신청방법Hub,
-  지급액: 지급액Hub,
-  신청기간: 신청기간Hub,
-  자녀장려금: 자녀장려금Hub,
-  절세팁: 절세팁Hub,
+  eligibility: 신청자격Hub,
+  "how-to-apply": 신청방법Hub,
+  payment: 지급액Hub,
+  schedule: 신청기간Hub,
+  "child-tax-credit": 자녀장려금Hub,
+  "tax-tips": 절세팁Hub,
 };
 
 export const spokeArticles: Record<string, Record<string, SpokeArticle>> = {
-  신청자격: 신청자격Spokes,
-  신청방법: 신청방법Spokes,
-  지급액: 지급액Spokes,
-  신청기간: 신청기간Spokes,
-  자녀장려금: 자녀장려금Spokes,
-  절세팁: 절세팁Spokes,
+  eligibility: 신청자격Spokes,
+  "how-to-apply": 신청방법Spokes,
+  payment: 지급액Spokes,
+  schedule: 신청기간Spokes,
+  "child-tax-credit": 자녀장려금Spokes,
+  "tax-tips": 절세팁Spokes,
 };
 
 export function getHubArticle(

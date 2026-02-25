@@ -5,13 +5,13 @@ import { useState } from "react";
 import { Landmark, Menu, X, Calculator } from "lucide-react";
 
 const navItems = [
-  { name: "신청자격", href: "/신청자격" },
-  { name: "신청방법", href: "/신청방법" },
-  { name: "지급액", href: "/지급액" },
-  { name: "신청기간", href: "/신청기간" },
-  { name: "자녀장려금", href: "/자녀장려금" },
-  { name: "절세팁", href: "/절세팁" },
-  { name: "서식다운로드", href: "/서식다운로드" },
+  { name: "신청자격", href: "/eligibility" },
+  { name: "신청방법", href: "/how-to-apply" },
+  { name: "지급액", href: "/payment" },
+  { name: "신청기간", href: "/schedule" },
+  { name: "자녀장려금", href: "/child-tax-credit" },
+  { name: "절세팁", href: "/tax-tips" },
+  { name: "서식다운로드", href: "/forms" },
 ];
 
 export function Header() {

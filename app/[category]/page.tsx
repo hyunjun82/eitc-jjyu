@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { category } = await params;
-  const slug = decodeURIComponent(category);
+  const slug = category;
   const hub = getHubArticle(slug);
   if (!hub) return {};
   return {
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function HubPage({ params }: PageProps) {
   const { category } = await params;
-  const slug = decodeURIComponent(category);
+  const slug = category;
   const hub = getHubArticle(slug);
   const catInfo = categories.find((c) => c.slug === slug);
 
