@@ -271,253 +271,276 @@ export function EITCCalculator() {
   const spouseDisabled = state.hasDependent === "아니오";
 
   return (
-    <section className="mx-auto max-w-2xl px-4 py-12">
-      {/* Card */}
-      <div className="rounded-2xl border border-gray-200 bg-white shadow-sm">
-        {/* Header */}
-        <div className="px-6 pt-6 pb-5">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white">
-              <Calculator className="h-5 w-5" />
+    <section className="border-t bg-gray-50/50">
+      <div className="mx-auto max-w-6xl px-4 py-12">
+        <h2 className="text-xl font-bold text-gray-900 mb-2">
+          근로·자녀장려금 모의계산
+        </h2>
+        <p className="text-sm text-gray-500 mb-6">
+          간단한 정보를 입력하면 예상 지급액을 확인할 수 있어요
+        </p>
+
+        <div className="grid gap-6 lg:grid-cols-5">
+          {/* Left: Form (3 cols) */}
+          <div className="lg:col-span-3 rounded-2xl border border-gray-200 bg-white shadow-sm">
+            {/* Tab */}
+            <div className="px-6 pt-5 pb-4">
+              <div className="inline-flex w-full rounded-lg bg-gray-100 p-1">
+                {(["정기", "반기"] as Tab[]).map((t) => (
+                  <button
+                    key={t}
+                    onClick={() => {
+                      setTab(t);
+                      setResult(null);
+                    }}
+                    className={`flex-1 rounded-md py-2 text-sm font-medium transition-all ${
+                      tab === t
+                        ? "bg-white text-gray-900 shadow-sm"
+                        : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    {t} 신청
+                  </button>
+                ))}
+              </div>
             </div>
-            <div>
-              <h2 className="text-lg font-bold text-gray-900">
-                근로·자녀장려금 모의계산
-              </h2>
-              <p className="text-xs text-gray-500">
-                2026년 국세청 기준 · 참고용
-              </p>
-            </div>
-          </div>
 
-          {/* Tab */}
-          <div className="mt-5">
-            <div className="inline-flex w-full rounded-lg bg-gray-100 p-1">
-              {(["정기", "반기"] as Tab[]).map((t) => (
-                <button
-                  key={t}
-                  onClick={() => {
-                    setTab(t);
-                    setResult(null);
-                  }}
-                  className={`flex-1 rounded-md py-2 text-sm font-medium transition-all ${
-                    tab === t
-                      ? "bg-white text-gray-900 shadow-sm"
-                      : "text-gray-500 hover:text-gray-700"
-                  }`}
-                >
-                  {t} 신청
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+            <div className="border-t border-gray-100" />
 
-        <div className="border-t border-gray-100" />
-
-        {/* Form */}
-        <div className="px-6 py-5 space-y-6">
-          {/* Section 1: 가구 정보 */}
-          <div>
-            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
-              가구 정보
-            </h3>
-            <div className="space-y-4">
-              <FormRow label="배우자·부양가족 유무">
-                <SegmentedControl
-                  value={state.hasDependent}
-                  onChange={(v) => update("hasDependent", v as YesNo)}
-                  options={["예", "아니오"]}
-                />
-              </FormRow>
-
-              {state.hasDependent === "예" && (
-                <FormRow label="부양자녀 수">
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="number"
-                      min={0}
-                      max={10}
-                      value={state.childCount}
-                      onChange={(e) =>
-                        update("childCount", Math.max(0, parseInt(e.target.value) || 0))
-                      }
-                      className="w-20 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-center focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+            {/* Form */}
+            <div className="px-6 py-5 space-y-6">
+              {/* Section 1: 가구 정보 */}
+              <div>
+                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                  가구 정보
+                </h3>
+                <div className="space-y-4">
+                  <FormRow label="배우자·부양가족 유무">
+                    <SegmentedControl
+                      value={state.hasDependent}
+                      onChange={(v) => update("hasDependent", v as YesNo)}
+                      options={["예", "아니오"]}
                     />
-                    <span className="text-sm text-gray-500">명</span>
-                  </div>
-                </FormRow>
-              )}
+                  </FormRow>
 
-              <FormRow label="총소득 기준금액 미만 여부">
+                  {state.hasDependent === "예" && (
+                    <FormRow label="부양자녀 수">
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="number"
+                          min={0}
+                          max={10}
+                          value={state.childCount}
+                          onChange={(e) =>
+                            update("childCount", Math.max(0, parseInt(e.target.value) || 0))
+                          }
+                          className="w-20 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-center focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                        />
+                        <span className="text-sm text-gray-500">명</span>
+                      </div>
+                    </FormRow>
+                  )}
+
+                  <FormRow label="총소득 기준금액 미만 여부">
+                    <SegmentedControl
+                      value={state.incomeUnderLimit}
+                      onChange={(v) => update("incomeUnderLimit", v as YesNo)}
+                      options={["예", "아니오"]}
+                    />
+                  </FormRow>
+
+                  {state.hasDependent === "예" && state.childCount > 0 && (
+                    <FormRow label="자녀장려금 소득기준 미만 여부">
+                      <SegmentedControl
+                        value={state.childCreditIncomeUnderLimit}
+                        onChange={(v) => update("childCreditIncomeUnderLimit", v as YesNo)}
+                        options={["예", "아니오"]}
+                      />
+                    </FormRow>
+                  )}
+
+                  <FormRow label="가구 재산 합계">
+                    <SegmentedControl
+                      value={state.assetRange}
+                      onChange={(v) => update("assetRange", v as AssetRange)}
+                      options={["1.7억 미만", "1.7억~2.4억", "2.4억 이상"]}
+                    />
+                  </FormRow>
+                </div>
+              </div>
+
+              <div className="border-t border-gray-100" />
+
+              {/* Section 2: 소득 입력 */}
+              <div>
+                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                  소득 입력
+                </h3>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {/* 신청인 */}
+                  <div className="space-y-3">
+                    <p className="text-sm font-semibold text-gray-900">신청인</p>
+                    <div>
+                      <label className="text-xs text-gray-500 mb-1 block">근로소득</label>
+                      <MoneyInput
+                        value={state.applicantWage}
+                        onChange={(v) => update("applicantWage", v)}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs text-gray-500 mb-1 block">종교인소득</label>
+                      <MoneyInput
+                        value={state.applicantReligious}
+                        onChange={(v) => update("applicantReligious", v)}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs text-gray-500 mb-1 block">사업소득</label>
+                      <MoneyInput
+                        value={state.applicantBusiness}
+                        onChange={(v) => update("applicantBusiness", v)}
+                      />
+                    </div>
+                  </div>
+
+                  {/* 배우자 */}
+                  <div className={`space-y-3 ${spouseDisabled ? "opacity-40" : ""}`}>
+                    <p className="text-sm font-semibold text-gray-900">
+                      배우자
+                      {spouseDisabled && (
+                        <span className="ml-1.5 text-xs font-normal text-gray-400">
+                          (해당 없음)
+                        </span>
+                      )}
+                    </p>
+                    <div>
+                      <label className="text-xs text-gray-500 mb-1 block">근로소득</label>
+                      <MoneyInput
+                        value={state.spouseWage}
+                        onChange={(v) => update("spouseWage", v)}
+                        disabled={spouseDisabled}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs text-gray-500 mb-1 block">종교인소득</label>
+                      <MoneyInput
+                        value={state.spouseReligious}
+                        onChange={(v) => update("spouseReligious", v)}
+                        disabled={spouseDisabled}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs text-gray-500 mb-1 block">사업소득</label>
+                      <MoneyInput
+                        value={state.spouseBusiness}
+                        onChange={(v) => update("spouseBusiness", v)}
+                        disabled={spouseDisabled}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t border-gray-100" />
+
+              {/* Section 3: 제외 여부 */}
+              <FormRow label="신청제외자 해당 여부">
                 <SegmentedControl
-                  value={state.incomeUnderLimit}
-                  onChange={(v) => update("incomeUnderLimit", v as YesNo)}
+                  value={state.isExcluded}
+                  onChange={(v) => update("isExcluded", v as YesNo)}
                   options={["예", "아니오"]}
                 />
               </FormRow>
+            </div>
 
-              {state.hasDependent === "예" && state.childCount > 0 && (
-                <FormRow label="자녀장려금 소득기준 미만 여부">
-                  <SegmentedControl
-                    value={state.childCreditIncomeUnderLimit}
-                    onChange={(v) => update("childCreditIncomeUnderLimit", v as YesNo)}
-                    options={["예", "아니오"]}
-                  />
-                </FormRow>
-              )}
-
-              <FormRow label="가구 재산 합계">
-                <SegmentedControl
-                  value={state.assetRange}
-                  onChange={(v) => update("assetRange", v as AssetRange)}
-                  options={["1.7억 미만", "1.7억~2.4억", "2.4억 이상"]}
-                />
-              </FormRow>
+            {/* Action buttons */}
+            <div className="border-t border-gray-100 px-6 py-4 flex items-center gap-3">
+              <button
+                onClick={handleReset}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50"
+              >
+                <RotateCcw className="h-3.5 w-3.5" />
+                초기화
+              </button>
+              <button
+                onClick={handleCalculate}
+                className="flex-1 rounded-lg bg-blue-600 py-2.5 text-sm font-bold text-white transition-colors hover:bg-blue-700"
+              >
+                계산하기
+              </button>
             </div>
           </div>
 
-          <div className="border-t border-gray-100" />
-
-          {/* Section 2: 소득 입력 */}
-          <div>
-            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
-              소득 입력
-            </h3>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {/* 신청인 */}
-              <div className="space-y-3">
-                <p className="text-sm font-semibold text-gray-900">신청인</p>
-                <div>
-                  <label className="text-xs text-gray-500 mb-1 block">근로소득</label>
-                  <MoneyInput
-                    value={state.applicantWage}
-                    onChange={(v) => update("applicantWage", v)}
-                  />
-                </div>
-                <div>
-                  <label className="text-xs text-gray-500 mb-1 block">종교인소득</label>
-                  <MoneyInput
-                    value={state.applicantReligious}
-                    onChange={(v) => update("applicantReligious", v)}
-                  />
-                </div>
-                <div>
-                  <label className="text-xs text-gray-500 mb-1 block">사업소득</label>
-                  <MoneyInput
-                    value={state.applicantBusiness}
-                    onChange={(v) => update("applicantBusiness", v)}
-                  />
-                </div>
+          {/* Right: Result panel (2 cols) */}
+          <div className="lg:col-span-2 space-y-4">
+            {/* Result card */}
+            <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-6 lg:sticky lg:top-20">
+              <div className="flex items-center gap-2 mb-5">
+                <Calculator className="h-5 w-5 text-blue-600" />
+                <h3 className="font-bold text-gray-900">계산 결과</h3>
               </div>
 
-              {/* 배우자 */}
-              <div className={`space-y-3 ${spouseDisabled ? "opacity-40" : ""}`}>
-                <p className="text-sm font-semibold text-gray-900">
-                  배우자
-                  {spouseDisabled && (
-                    <span className="ml-1.5 text-xs font-normal text-gray-400">
-                      (해당 없음)
-                    </span>
+              {result ? (
+                <>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center rounded-lg bg-gray-50 px-4 py-3">
+                      <span className="text-sm text-gray-600">가구 유형</span>
+                      <span className="text-sm font-semibold text-gray-900">{result.householdType}</span>
+                    </div>
+                    <div className="flex justify-between items-center rounded-lg bg-gray-50 px-4 py-3">
+                      <span className="text-sm text-gray-600">근로장려금</span>
+                      <span className="text-sm font-bold text-gray-900">{formatWon(result.eitc)}원</span>
+                    </div>
+                    {result.childCredit > 0 && (
+                      <div className="flex justify-between items-center rounded-lg bg-gray-50 px-4 py-3">
+                        <span className="text-sm text-gray-600">자녀장려금</span>
+                        <span className="text-sm font-bold text-gray-900">{formatWon(result.childCredit)}원</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between items-center rounded-xl bg-blue-600 px-4 py-4 mt-1">
+                      <span className="text-sm font-semibold text-blue-100">예상 합계</span>
+                      <span className="text-xl font-extrabold text-white">
+                        {formatWon(result.total)}원
+                      </span>
+                    </div>
+                  </div>
+
+                  {result.total === 0 && (
+                    <p className="mt-3 rounded-lg bg-red-50 px-4 py-2.5 text-sm text-red-600">
+                      입력하신 조건으로는 수급 대상이 아닐 수 있어요.
+                    </p>
                   )}
-                </p>
-                <div>
-                  <label className="text-xs text-gray-500 mb-1 block">근로소득</label>
-                  <MoneyInput
-                    value={state.spouseWage}
-                    onChange={(v) => update("spouseWage", v)}
-                    disabled={spouseDisabled}
-                  />
-                </div>
-                <div>
-                  <label className="text-xs text-gray-500 mb-1 block">종교인소득</label>
-                  <MoneyInput
-                    value={state.spouseReligious}
-                    onChange={(v) => update("spouseReligious", v)}
-                    disabled={spouseDisabled}
-                  />
-                </div>
-                <div>
-                  <label className="text-xs text-gray-500 mb-1 block">사업소득</label>
-                  <MoneyInput
-                    value={state.spouseBusiness}
-                    onChange={(v) => update("spouseBusiness", v)}
-                    disabled={spouseDisabled}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-100" />
-
-          {/* Section 3: 제외 여부 */}
-          <FormRow label="신청제외자 해당 여부">
-            <SegmentedControl
-              value={state.isExcluded}
-              onChange={(v) => update("isExcluded", v as YesNo)}
-              options={["예", "아니오"]}
-            />
-          </FormRow>
-        </div>
-
-        {/* Action buttons */}
-        <div className="border-t border-gray-100 px-6 py-4 flex items-center gap-3">
-          <button
-            onClick={handleReset}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50"
-          >
-            <RotateCcw className="h-3.5 w-3.5" />
-            초기화
-          </button>
-          <button
-            onClick={handleCalculate}
-            className="flex-1 rounded-lg bg-blue-600 py-2.5 text-sm font-bold text-white transition-colors hover:bg-blue-700"
-          >
-            계산하기
-          </button>
-        </div>
-
-        {/* Result */}
-        {result && (
-          <div className="border-t border-gray-100 px-6 py-5">
-            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
-              {tab} 모의계산 결과
-            </h3>
-
-            <div className="space-y-2">
-              <div className="flex justify-between items-center rounded-lg bg-gray-50 px-4 py-3">
-                <span className="text-sm text-gray-600">가구 유형</span>
-                <span className="text-sm font-semibold text-gray-900">{result.householdType}</span>
-              </div>
-              <div className="flex justify-between items-center rounded-lg bg-gray-50 px-4 py-3">
-                <span className="text-sm text-gray-600">근로장려금 (예상)</span>
-                <span className="text-sm font-bold text-gray-900">{formatWon(result.eitc)}원</span>
-              </div>
-              {result.childCredit > 0 && (
-                <div className="flex justify-between items-center rounded-lg bg-gray-50 px-4 py-3">
-                  <span className="text-sm text-gray-600">자녀장려금 (예상)</span>
-                  <span className="text-sm font-bold text-gray-900">{formatWon(result.childCredit)}원</span>
+                  <p className="mt-4 text-xs text-gray-400">
+                    * 본 결과는 참고용이며, 실제 지급액은 국세청 심사에 따라 달라질 수 있습니다.
+                  </p>
+                </>
+              ) : (
+                <div className="text-center py-8">
+                  <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
+                    <Calculator className="h-6 w-6 text-gray-400" />
+                  </div>
+                  <p className="text-sm text-gray-500">
+                    왼쪽 정보를 입력하고
+                  </p>
+                  <p className="text-sm font-semibold text-gray-700">
+                    계산하기 버튼을 눌러주세요
+                  </p>
                 </div>
               )}
-              <div className="flex justify-between items-center rounded-xl bg-blue-600 px-4 py-4 mt-1">
-                <span className="text-sm font-semibold text-blue-100">예상 합계</span>
-                <span className="text-xl font-extrabold text-white">
-                  {formatWon(result.total)}원
-                </span>
-              </div>
             </div>
 
-            {result.total === 0 && (
-              <p className="mt-3 rounded-lg bg-red-50 px-4 py-2.5 text-sm text-red-600">
-                입력하신 조건으로는 수급 대상이 아닐 수 있어요.
-              </p>
-            )}
-            <p className="mt-3 text-xs text-gray-400 text-center">
-              본 결과는 참고용이며, 실제 지급액은 국세청 심사에 따라 달라질 수 있습니다.
-            </p>
+            {/* Info tips */}
+            <div className="rounded-2xl border border-blue-100 bg-blue-50 p-5">
+              <h4 className="text-sm font-bold text-blue-900 mb-2">알아두세요</h4>
+              <ul className="space-y-1.5 text-xs text-blue-700">
+                <li>· 단독가구: 배우자·부양가족 없는 경우</li>
+                <li>· 홑벌이가구: 배우자 소득 300만원 미만</li>
+                <li>· 맞벌이가구: 배우자 소득 300만원 이상</li>
+                <li>· 재산 1.7억~2.4억: 장려금 50% 감액</li>
+              </ul>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
