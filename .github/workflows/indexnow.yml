@@ -1,0 +1,30 @@
+name: IndexNow Ping
+
+on:
+  # Vercel 배포 완료 후 자동 실행 (main/master 브랜치 push 시)
+  push:
+    branches: [main, master]
+
+  # 수동 실행도 가능
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    # Vercel 배포가 완료될 시간을 확보
+    steps:
+      - name: Wait for Vercel deploy
+        run: sleep 60
+
+      - name: Submit URLs to IndexNow
+        run: |
+          echo "Submitting URLs to IndexNow..."
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" \
+            -X POST https://eitc.jjyu.co.kr/api/indexnow)
+          echo "Response status: $RESPONSE"
+          if [ "$RESPONSE" -ge 200 ] && [ "$RESPONSE" -lt 300 ]; then
+            echo "IndexNow submission successful!"
+          else
+            echo "IndexNow submission returned status $RESPONSE"
+            exit 1
+          fi

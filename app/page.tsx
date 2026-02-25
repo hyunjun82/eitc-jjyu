@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { CategoryCard } from "@/components/CategoryCard";
 import { EITCCalculator } from "@/components/EITCCalculator";
 import { categories } from "@/data/categories";
-import { spokeArticles } from "@/data/articles";
-import { Landmark, Calculator, CalendarCheck } from "lucide-react";
+import { hubArticles, spokeArticles } from "@/data/articles";
+import { Landmark, Calculator, CalendarCheck, ChevronRight } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -39,6 +40,43 @@ export default function HomePage() {
               }}
             />
           ))}
+        </div>
+      </section>
+
+      {/* Article List by Category */}
+      <section className="mx-auto max-w-6xl px-4 py-12 border-t">
+        <h2 className="text-xl font-bold text-gray-900 mb-8">
+          전체 가이드 목록
+        </h2>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {categories.map((cat) => {
+            const hub = hubArticles[cat.slug];
+            if (!hub) return null;
+            return (
+              <div key={cat.slug}>
+                <Link
+                  href={`/${cat.slug}`}
+                  className="flex items-center gap-2 text-base font-bold text-gray-900 hover:text-blue-600 transition-colors mb-3"
+                >
+                  <span>{cat.icon}</span>
+                  {cat.name}
+                </Link>
+                <ul className="space-y-1.5">
+                  {hub.spokes.map((spoke) => (
+                    <li key={spoke.slug}>
+                      <Link
+                        href={`/${cat.slug}/${spoke.slug}`}
+                        className="group flex items-center gap-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                      >
+                        <ChevronRight className="h-3 w-3 shrink-0 text-gray-300 group-hover:text-blue-400" />
+                        {spoke.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </section>
 
