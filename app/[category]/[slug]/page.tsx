@@ -195,11 +195,6 @@ export default async function SpokePage({ params }: PageProps) {
         {/* Main Column */}
         <div className="flex-1 max-w-3xl">
 
-      {/* Ad Slot - Top */}
-      <div className="py-4">
-        <AdSlot id="top" />
-      </div>
-
       {/* Article Sections */}
       <article>
         {article.sections.map((section, i) => {
