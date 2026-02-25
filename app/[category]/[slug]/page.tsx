@@ -9,7 +9,7 @@ import { RelatedSpokes } from "@/components/RelatedSpokes";
 import { CategorySidebar } from "@/components/CategorySidebar";
 import { ShareButtons } from "@/components/ShareButtons";
 import { AuthorBio } from "@/components/AuthorBio";
-import { AdSlot } from "@/components/AdSlot";
+
 import { CalculatorCTA } from "@/components/CalculatorCTA";
 import { getSpokeArticle } from "@/data/articles";
 import { spokeArticles } from "@/data/articles";
@@ -240,7 +240,6 @@ export default async function SpokePage({ params }: PageProps) {
                 <>
                   {/* CTA - 중간 */}
                   <CalculatorCTA />
-                  <AdSlot id="mid" />
                   <RelatedSpokes categorySlug={catSlug} currentSlug={spokeSlug} />
                 </>
               )}
@@ -248,9 +247,6 @@ export default async function SpokePage({ params }: PageProps) {
           );
         })}
       </article>
-
-      {/* Ad Slot - Bottom */}
-      <AdSlot id="bottom" />
 
       {/* FAQ */}
       {article.faq.length > 0 && (

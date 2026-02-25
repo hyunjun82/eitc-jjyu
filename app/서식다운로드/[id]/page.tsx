@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ChevronRight, ArrowLeft, FileText, Download, ExternalLink } from "lucide-react";
-import { AdSlot } from "@/components/AdSlot";
+
 import { forms } from "@/data/forms";
 
 interface PageProps {
@@ -65,9 +65,6 @@ export default async function FormDownloadPage({ params }: PageProps) {
 
       {/* Download area */}
       <div className="mx-auto max-w-3xl px-4 py-10">
-        {/* Ad Slot - top */}
-        <AdSlot id="download-top" />
-
         {/* Download card */}
         <div className="rounded-2xl border border-gray-200 bg-white p-8 text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 mb-5">
@@ -90,9 +87,6 @@ export default async function FormDownloadPage({ params }: PageProps) {
             HWP/HWPX 파일이 바로 다운로드돼요
           </p>
         </div>
-
-        {/* Ad Slot - bottom */}
-        <AdSlot id="download-bottom" />
 
         {/* Related forms */}
         <div className="mt-10">

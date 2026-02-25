@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, FileText, ArrowLeft, Download } from "lucide-react";
 import { CalculatorCTA } from "@/components/CalculatorCTA";
-import { AdSlot } from "@/components/AdSlot";
+
 import { forms } from "@/data/forms";
 
 export const metadata: Metadata = {
@@ -78,8 +78,6 @@ export default function FormsDownloadPage() {
             </Link>
           ))}
         </div>
-
-        <AdSlot id="forms-bottom" />
 
         {/* Notice */}
         <div className="mt-8 rounded-lg bg-amber-50 border border-amber-200 p-4">
