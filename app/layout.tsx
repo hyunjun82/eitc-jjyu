@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     google: "kPe6sAN7cMBDG2OVVWHcI8hH-BxkT5Zv6U8TVWTxuwI",
     other: {
       "naver-site-verification": ["1a137c99b52a6ecfcf48b61cc20c5cd3f06c08b5"],
-      "verification": ["#DaumWebMasterTool:05e707c47431e356739a10506670ce75f99027ce6e9f94b0b43ec692a37dcd25:DnpaNaMIGPCwn0un5KS9mQ=="],
     },
   },
   openGraph: {
