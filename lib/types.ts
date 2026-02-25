@@ -25,9 +25,15 @@ export interface VisualItem {
   subLabel?: string;
 }
 
+export interface StepItem {
+  label: string;
+  description?: string;
+}
+
 export interface VisualData {
-  type: "incomeRange" | "barCompare" | "segment";
+  type: "incomeRange" | "barCompare" | "segment" | "steps";
   items: VisualItem[];
+  steps?: StepItem[];
 }
 
 export interface ArticleSection {
