@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { hubArticles, spokeArticles } from "@/data/articles";
+import { forms } from "@/data/forms";
 
 const BASE_URL = "https://eitc.jjyu.co.kr";
 
@@ -46,5 +47,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }))
   );
 
-  return [...staticPages, ...hubPages, ...spokePages];
+  const formPages: MetadataRoute.Sitemap = forms.map((form) => ({
+    url: `${BASE_URL}/${encodeURIComponent("서식다운로드")}/${form.id}`,
+    lastModified: "2026-02-25",
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...hubPages, ...spokePages, ...formPages];
 }

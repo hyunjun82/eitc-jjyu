@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { spokeArticles } from "@/data/articles";
 import { categories } from "@/data/categories";
+import { forms } from "@/data/forms";
 
 const INDEXNOW_KEY = "a25a1b18bb53441eba59208907f5eb45";
 const SITE_HOST = "eitc.jjyu.co.kr";
@@ -11,6 +12,7 @@ function getAllUrls(): string[] {
     SITE_URL,
     `${SITE_URL}/about`,
     `${SITE_URL}/서식다운로드`,
+    ...forms.map((f) => `${SITE_URL}/서식다운로드/${f.id}`),
   ];
 
   for (const cat of categories) {

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, FileText, ArrowLeft } from "lucide-react";
-import { DownloadInterstitial } from "@/components/DownloadInterstitial";
+import { ChevronRight, FileText, ArrowLeft, Download } from "lucide-react";
 import { CalculatorCTA } from "@/components/CalculatorCTA";
 import { AdSlot } from "@/components/AdSlot";
+import { forms } from "@/data/forms";
 
 export const metadata: Metadata = {
   title: "근로장려금 서식 다운로드 | 신청서·확인서·이의신청서 양식",
@@ -13,45 +13,6 @@ export const metadata: Metadata = {
     canonical: "https://eitc.jjyu.co.kr/서식다운로드",
   },
 };
-
-const forms = [
-  {
-    id: "application",
-    title: "근로·자녀장려금 신청서",
-    description:
-      "근로장려금 및 자녀장려금을 신청할 때 사용하는 기본 신청 서식이에요. 홈택스·손택스 온라인 신청이 어려운 경우 이 서식을 작성하여 세무서에 제출할 수 있어요.",
-    fileName: "근로자녀장려금_신청서.hwp",
-    fileUrl:
-      "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2453&nttSn=1321938",
-  },
-  {
-    id: "confirmation",
-    title: "근로·자녀장려금 신청 확인서",
-    description:
-      "근로장려금 신청 완료 후 접수 내역을 확인하는 서식이에요. 신청이 정상 접수되었는지 확인할 때 사용하며, 세무서에서 발급받을 수도 있어요.",
-    fileName: "근로자녀장려금_신청확인서.hwp",
-    fileUrl:
-      "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2453&nttSn=1321939",
-  },
-  {
-    id: "objection",
-    title: "장려금 이의신청서",
-    description:
-      "장려금 결정 내용에 이의가 있는 경우 이의신청을 위해 사용하는 서식이에요. 환수 통보나 감액 결정에 대해 90일 이내에 제출할 수 있어요.",
-    fileName: "장려금_이의신청서.hwp",
-    fileUrl:
-      "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2453&nttSn=1321940",
-  },
-  {
-    id: "account",
-    title: "환급계좌 개설(변경) 신고서",
-    description:
-      "장려금을 수령할 환급계좌를 새로 등록하거나 변경할 때 사용하는 서식이에요. 온라인으로도 변경할 수 있지만, 세무서 방문 시 이 서식을 이용해요.",
-    fileName: "환급계좌_개설변경_신고서.hwp",
-    fileUrl:
-      "https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2453&nttSn=1321941",
-  },
-];
 
 export default function FormsDownloadPage() {
   return (
@@ -87,35 +48,34 @@ export default function FormsDownloadPage() {
       <div className="mx-auto max-w-3xl px-4 py-8">
         <div className="space-y-4">
           {forms.map((form) => (
-            <DownloadInterstitial
+            <Link
               key={form.id}
-              fileName={form.fileName}
-              fileUrl={form.fileUrl}
+              href={`/서식다운로드/${form.id}`}
+              className="group block rounded-xl border border-gray-200 bg-white p-5 transition-all hover:border-blue-300 hover:shadow-md"
             >
-              <div className="group rounded-xl border border-gray-200 bg-white p-5 transition-all hover:border-blue-300 hover:shadow-md">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-100">
-                    <FileText className="h-6 w-6" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h2 className="text-base font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {form.title}
-                    </h2>
-                    <p className="mt-1 text-sm text-gray-500 leading-relaxed">
-                      {form.description}
-                    </p>
-                    <div className="mt-2 flex items-center gap-2">
-                      <span className="inline-flex items-center rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
-                        {form.fileName}
-                      </span>
-                      <span className="text-xs text-blue-600 font-medium">
-                        클릭하여 다운로드
-                      </span>
-                    </div>
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-100">
+                  <FileText className="h-6 w-6" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h2 className="text-base font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                    {form.title}
+                  </h2>
+                  <p className="mt-1 text-sm text-gray-500 leading-relaxed">
+                    {form.description}
+                  </p>
+                  <div className="mt-2 flex items-center gap-2">
+                    <span className="inline-flex items-center rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
+                      {form.fileName}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-xs text-blue-600 font-medium">
+                      <Download className="h-3 w-3" />
+                      다운로드 페이지로 이동
+                    </span>
                   </div>
                 </div>
               </div>
-            </DownloadInterstitial>
+            </Link>
           ))}
         </div>
 
@@ -159,6 +119,7 @@ export default function FormsDownloadPage() {
                 position: i + 1,
                 name: form.title,
                 description: form.description,
+                url: `https://eitc.jjyu.co.kr/서식다운로드/${form.id}`,
               })),
             },
           }),
