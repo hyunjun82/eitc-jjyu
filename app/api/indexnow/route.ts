@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { spokeArticles } from "@/data/articles";
 import { categories } from "@/data/categories";
 
-const INDEXNOW_KEY = "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6";
+const INDEXNOW_KEY = "a25a1b18bb53441eba59208907f5eb45";
 const SITE_HOST = "eitc.jjyu.co.kr";
 const SITE_URL = `https://${SITE_HOST}`;
 
