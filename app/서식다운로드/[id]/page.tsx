@@ -79,8 +79,7 @@ export default async function FormDownloadPage({ params }: PageProps) {
 
           <a
             href={form.fileUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            download={form.fileName}
             className="mt-6 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-3.5 text-base font-bold text-white transition-colors hover:bg-blue-700"
           >
             <Download className="h-5 w-5" />
@@ -88,7 +87,7 @@ export default async function FormDownloadPage({ params }: PageProps) {
           </a>
 
           <p className="mt-3 text-xs text-gray-400">
-            클릭하면 국세청 사이트에서 파일을 받을 수 있어요
+            HWP/HWPX 파일이 바로 다운로드돼요
           </p>
         </div>
 
