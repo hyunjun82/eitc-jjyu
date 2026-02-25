@@ -18,10 +18,23 @@ export interface InfoItem {
   role: string;
 }
 
+export interface VisualItem {
+  label: string;
+  value: number;
+  color: "blue" | "green" | "amber" | "red" | "violet" | "gray";
+  subLabel?: string;
+}
+
+export interface VisualData {
+  type: "incomeRange" | "barCompare" | "segment";
+  items: VisualItem[];
+}
+
 export interface ArticleSection {
   title: string;
   content: string;
   infoItems?: InfoItem[];
+  visual?: VisualData;
 }
 
 export interface SpokeArticle {

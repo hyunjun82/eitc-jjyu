@@ -74,6 +74,14 @@ export const spokes: Record<string, SpokeArticle> = {
         title: "단독가구 소득구간별 지급액 기준",
         content:
           "단독가구의 근로장려금은 총급여액 등(총소득)에 따라 세 구간으로 나뉘어 산정돼요. 점증구간, 평탄구간, 점감구간으로 구성되며, 각 구간별로 지급액 계산 방식이 달라요.\n\n점증구간은 총급여액 등이 0원 초과~400만 원 미만인 구간이에요. 이 구간에서는 소득이 증가할수록 장려금도 늘어나요. 총급여액에 일정 비율(400분의 165)을 곱하여 산정해요. 예를 들어 총급여가 200만 원이면 약 82만 5천 원을 받을 수 있어요.\n\n평탄구간은 총급여액 등이 400만 원 이상~900만 원 미만인 구간으로, 최대 금액인 165만 원을 받을 수 있는 구간이에요. 이 소득 구간에 해당하면 소득에 관계없이 동일하게 165만 원이 지급돼요.",
+        visual: {
+          type: "incomeRange",
+          items: [
+            { label: "점증구간", value: 400, color: "blue", subLabel: "0~400만 원" },
+            { label: "평탄구간", value: 500, color: "green", subLabel: "400~900만 원" },
+            { label: "점감구간", value: 1300, color: "amber", subLabel: "900~2,200만 원" },
+          ],
+        },
         infoItems: [
           {
             type: "소득구간",
@@ -117,7 +125,7 @@ export const spokes: Record<string, SpokeArticle> = {
       },
     ],
     datePublished: "2026-02-24",
-    dateModified: "2026-02-24",
+    dateModified: "2026-02-25",
   },
   홑벌이가구: {
     slug: "홑벌이가구",
@@ -152,6 +160,14 @@ export const spokes: Record<string, SpokeArticle> = {
         title: "홑벌이가구 소득구간별 지급액 기준",
         content:
           "홑벌이가구의 근로장려금도 단독가구와 마찬가지로 점증구간, 평탄구간, 점감구간 세 단계로 나뉘어요. 다만, 각 구간의 소득 범위와 최대 금액이 더 크다는 차이가 있어요.\n\n점증구간은 총급여액 등이 0원 초과~700만 원 미만인 구간이에요. 소득이 증가할수록 장려금도 비례하여 늘어나요. 평탄구간은 700만 원~1,400만 원으로, 이 구간에서 최대 285만 원을 받을 수 있어요.\n\n점감구간은 1,400만 원~3,200만 원 구간으로, 소득이 높아질수록 장려금이 줄어들어요. 3,200만 원에 도달하면 장려금은 0원이 돼요. 홑벌이가구는 단독가구보다 소득 범위가 넓어서 더 많은 소득을 올리면서도 장려금을 받을 수 있어요.",
+        visual: {
+          type: "incomeRange",
+          items: [
+            { label: "점증구간", value: 700, color: "blue", subLabel: "0~700만 원" },
+            { label: "평탄구간", value: 700, color: "green", subLabel: "700~1,400만 원" },
+            { label: "점감구간", value: 1800, color: "amber", subLabel: "1,400~3,200만 원" },
+          ],
+        },
         infoItems: [
           {
             type: "소득구간",
@@ -195,7 +211,7 @@ export const spokes: Record<string, SpokeArticle> = {
       },
     ],
     datePublished: "2026-02-24",
-    dateModified: "2026-02-24",
+    dateModified: "2026-02-25",
   },
   맞벌이가구: {
     slug: "맞벌이가구",
@@ -230,6 +246,14 @@ export const spokes: Record<string, SpokeArticle> = {
         title: "맞벌이가구 소득구간별 지급액 기준",
         content:
           "맞벌이가구의 근로장려금은 부부 합산 총급여액 등을 기준으로 점증구간, 평탄구간, 점감구간에 따라 산정돼요. 세 가구유형 중 최대 지급액이 가장 높은 330만 원이에요.\n\n점증구간은 총급여액 등이 0원 초과~800만 원 미만, 평탄구간은 800만 원~1,700만 원, 점감구간은 1,700만 원~3,800만 원이에요. 부부 합산 소득이므로 각 구간의 범위가 다른 가구유형보다 넓어요.\n\n맞벌이가구는 부부 모두가 경제활동을 하므로 합산 소득이 높아지기 쉬워요. 그래서 소득 기준금액도 3,800만 원으로 가장 높게 설정되어 있어요. 하지만 그만큼 점감구간도 넓어서, 소득이 높아질수록 장려금이 점차 줄어드는 폭이 커요.",
+        visual: {
+          type: "incomeRange",
+          items: [
+            { label: "점증구간", value: 800, color: "blue", subLabel: "0~800만 원" },
+            { label: "평탄구간", value: 900, color: "green", subLabel: "800~1,700만 원" },
+            { label: "점감구간", value: 2100, color: "amber", subLabel: "1,700~3,800만 원" },
+          ],
+        },
         infoItems: [
           {
             type: "소득구간",
@@ -273,7 +297,7 @@ export const spokes: Record<string, SpokeArticle> = {
       },
     ],
     datePublished: "2026-02-24",
-    dateModified: "2026-02-24",
+    dateModified: "2026-02-25",
   },
   계산방법: {
     slug: "계산방법",
@@ -308,6 +332,14 @@ export const spokes: Record<string, SpokeArticle> = {
         title: "근로장려금 산정 기본 구조",
         content:
           "근로장려금은 '총급여액 등'을 기준으로 가구유형별 산정표에 따라 계산돼요. 모든 가구유형에서 공통적으로 점증구간, 평탄구간, 점감구간의 세 단계 구조를 따라요.\n\n점증구간에서는 소득이 증가할수록 장려금도 늘어나요. 이는 근로 의욕을 높이기 위한 설계예요. 평탄구간에서는 최대 금액이 일정하게 유지돼요. 점감구간에서는 소득이 높아질수록 장려금이 줄어들어, 일정 소득 이상에서는 자력으로 생활이 가능하다고 보는 거예요.\n\n이 구조를 그래프로 그리면 사다리꼴 모양이 돼요. 왼쪽 경사(점증), 평평한 꼭대기(평탄), 오른쪽 경사(점감)의 형태예요. 가구유형별로 각 구간의 소득 범위와 최대 금액만 다르고, 기본 구조는 동일해요.",
+        visual: {
+          type: "barCompare",
+          items: [
+            { label: "단독가구", value: 165, color: "blue", subLabel: "최대 165만 원" },
+            { label: "홑벌이가구", value: 285, color: "green", subLabel: "최대 285만 원" },
+            { label: "맞벌이가구", value: 330, color: "violet", subLabel: "최대 330만 원" },
+          ],
+        },
         infoItems: [
           {
             type: "가구유형",
@@ -338,6 +370,14 @@ export const spokes: Record<string, SpokeArticle> = {
         title: "감액 요인 총정리",
         content:
           "산정표에 따라 계산된 장려금에서 추가로 감액되는 요인이 있어요. 이를 반영해야 실제 수령액을 정확히 알 수 있어요.\n\n첫 번째 감액 요인은 재산이에요. 가구원 재산 합계가 1억 7천만 원 이상 2억 4천만 원 미만이면 산정된 장려금의 50%만 지급돼요. 예를 들어 단독가구 최대 165만 원이 산정되었는데 재산이 1.8억 원이면, 실제 수령액은 82만 5천 원이에요.\n\n두 번째는 기한후 신청 감액이에요. 정기신청 기간(5월)을 놓치고 6월~11월에 기한후 신청을 하면, 산정된 장려금에서 5~10%가 감액돼요. 세 번째는 체납 차감이에요. 국세 체납액이 있으면 장려금에서 체납액을 차감(최대 30%)한 후 나머지를 지급해요. 이 세 가지 감액 요인을 모두 고려해야 최종 수령액을 정확히 계산할 수 있어요.",
+        visual: {
+          type: "segment",
+          items: [
+            { label: "전액 지급", value: 170, color: "green", subLabel: "재산 1.7억 미만" },
+            { label: "50% 감액", value: 70, color: "amber", subLabel: "1.7~2.4억" },
+            { label: "대상 제외", value: 60, color: "red", subLabel: "2.4억 이상" },
+          ],
+        },
       },
       {
         title: "종합 계산 예시",
@@ -351,6 +391,6 @@ export const spokes: Record<string, SpokeArticle> = {
       },
     ],
     datePublished: "2026-02-24",
-    dateModified: "2026-02-24",
+    dateModified: "2026-02-25",
   },
 };

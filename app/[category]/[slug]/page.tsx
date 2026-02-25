@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { FAQSection } from "@/components/FAQSection";
 import { InfoTable } from "@/components/InfoTable";
+import { SectionVisual } from "@/components/SectionVisual";
 import { RelatedSpokes } from "@/components/RelatedSpokes";
 import { CategorySidebar } from "@/components/CategorySidebar";
 import { ShareButtons } from "@/components/ShareButtons";
@@ -211,6 +212,11 @@ export default async function SpokePage({ params }: PageProps) {
                     {section.title}
                   </h2>
                 </div>
+                {section.visual && (
+                  <div className="mb-4 pl-[42px]">
+                    <SectionVisual type={section.visual.type} items={section.visual.items} />
+                  </div>
+                )}
                 {section.infoItems && section.infoItems.length > 0 && (
                   <div className="mb-4 pl-[42px]">
                     <InfoTable items={section.infoItems} />
