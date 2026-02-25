@@ -17,6 +17,10 @@ export function Footer() {
               작성자 소개
             </Link>
             <span>|</span>
+            <Link href="/서식다운로드" className="hover:text-gray-600">
+              서식 다운로드
+            </Link>
+            <span>|</span>
             <span>국세청 홈택스 기반</span>
           </div>
         </div>

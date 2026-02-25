@@ -19,6 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.5,
     },
+    {
+      url: `${BASE_URL}/${encodeURIComponent("서식다운로드")}`,
+      lastModified: "2026-02-25",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
   ];
 
   const hubPages: MetadataRoute.Sitemap = Object.values(hubArticles).map(
