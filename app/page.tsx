@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { EITCCalculator } from "@/components/EITCCalculator";
+import { CategoryCard } from "@/components/CategoryCard";
 import { categories } from "@/data/categories";
-import { hubArticles, spokeArticles } from "@/data/articles";
+import { hubArticles } from "@/data/articles";
 import { Landmark, Calculator, CalendarCheck } from "lucide-react";
 
 export default function HomePage() {
@@ -24,53 +25,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Categories with Article List */}
+      {/* Categories */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <h2 className="text-xl font-bold text-gray-900 mb-8">
           카테고리별 가이드
         </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {categories.map((cat) => {
             const hub = hubArticles[cat.slug];
-            const count = Object.keys(spokeArticles[cat.slug] ?? {}).length;
             if (!hub) return null;
             return (
-              <div
+              <CategoryCard
                 key={cat.slug}
-                className="rounded-xl border border-gray-200 bg-white p-5"
-              >
-                <Link
-                  href={`/${cat.slug}`}
-                  className="flex items-center gap-3 mb-4 group"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-lg">
-                    {cat.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {cat.name}
-                    </h3>
-                    <p className="text-xs text-gray-400">
-                      {count}개 가이드
-                    </p>
-                  </div>
-                </Link>
-                <ol className="space-y-1.5 border-t border-gray-100 pt-3">
-                  {hub.spokes.map((spoke, idx) => (
-                    <li key={spoke.slug}>
-                      <Link
-                        href={`/${cat.slug}/${spoke.slug}`}
-                        className="group flex items-center gap-2.5 rounded-md px-1 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
-                      >
-                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gray-100 text-[11px] font-semibold text-gray-500 group-hover:bg-blue-100 group-hover:text-blue-600">
-                          {idx + 1}
-                        </span>
-                        <span className="truncate">{spoke.title}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+                category={{ ...cat, count: hub.spokes.length }}
+              />
             );
           })}
         </div>
