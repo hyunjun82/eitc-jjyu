@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ChevronRight, ArrowLeft, FileText, Download, ExternalLink } from "lucide-react";
 
+import { AdUnit } from "@/components/AdUnit";
 import { forms } from "@/data/forms";
 
 interface PageProps {
@@ -87,6 +88,9 @@ export default async function FormDownloadPage({ params }: PageProps) {
             HWP/HWPX 파일이 바로 다운로드돼요
           </p>
         </div>
+
+        {/* 수동 광고 - 다운로드 카드 아래 */}
+        <AdUnit slot="REPLACE_ME_DOWNLOAD" />
 
         {/* Related forms */}
         <div className="mt-10">
