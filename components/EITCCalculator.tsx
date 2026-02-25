@@ -97,19 +97,31 @@ function calcEITC(
 }
 
 function calcChildCredit(
+  householdType: "홑벌이" | "맞벌이",
   childCount: number,
   totalIncome: number,
   assetRange: AssetRange
 ): number {
   if (childCount <= 0 || totalIncome >= 70000000) return 0;
 
-  const perChild = 1000000;
-  let credit = childCount * perChild;
+  const maxCredit = childCount * 1000000;
 
-  if (totalIncome > 40000000) {
-    const reduction = ((totalIncome - 40000000) / 30000000) * credit;
-    credit = Math.max(0, Math.round(credit - reduction));
+  // 가구유형별 최대지급 구간 (국세청 기준)
+  // 홑벌이: 2,100만원 기준, 맞벌이: 2,500만원 기준
+  const peakPoint = householdType === "홑벌이" ? 21000000 : 25000000;
+  const incomeLimit = 70000000;
+
+  let credit = 0;
+
+  if (totalIncome < peakPoint) {
+    // 증가구간: 0 ~ peakPoint
+    credit = (totalIncome / peakPoint) * maxCredit;
+  } else {
+    // 감소구간: peakPoint ~ 7,000만원
+    credit = maxCredit - ((totalIncome - peakPoint) / (incomeLimit - peakPoint)) * maxCredit;
   }
+
+  credit = Math.max(0, Math.round(credit));
 
   if (assetRange === "1.7억~2.4억") {
     credit = Math.round(credit * 0.5);
@@ -286,7 +298,7 @@ export function EITCCalculator() {
       state.childCount > 0 &&
       householdType !== "단독"
     ) {
-      childCredit = calcChildCredit(state.childCount, totalIncome, state.assetRange);
+      childCredit = calcChildCredit(householdType as "홑벌이" | "맞벌이", state.childCount, totalIncome, state.assetRange);
     }
 
     const semiAnnualRatio = tab === "반기" ? 0.5 : 1;
