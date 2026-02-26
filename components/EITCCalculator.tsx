@@ -68,7 +68,7 @@ function calcEITC(
     peakEnd = 14000000;
   } else {
     maxCredit = 3300000;
-    incomeLimit = 38000000;
+    incomeLimit = 44000000;
     peakStart = 8000000;
     peakEnd = 17000000;
   }
@@ -588,7 +588,7 @@ export function EITCCalculator() {
                     <td className="px-5 py-3 font-medium text-gray-900">총소득 기준</td>
                     <td className="px-5 py-3">2,200만원 미만</td>
                     <td className="px-5 py-3">3,200만원 미만</td>
-                    <td className="px-5 py-3">3,800만원 미만</td>
+                    <td className="px-5 py-3">4,400만원 미만</td>
                   </tr>
                   <tr>
                     <td className="px-5 py-3 font-medium text-gray-900">재산 기준</td>
