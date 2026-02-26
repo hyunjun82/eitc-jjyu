@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Landmark, Menu, X, Calculator } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Landmark, Menu, X, Calculator, ChevronDown } from "lucide-react";
 
 const navItems = [
   { name: "신청자격", href: "/eligibility" },
@@ -11,11 +11,29 @@ const navItems = [
   { name: "신청기간", href: "/schedule" },
   { name: "자녀장려금", href: "/child-tax-credit" },
   { name: "절세팁", href: "/tax-tips" },
+];
+
+const moreItems = [
+  { name: "직업별 가이드", href: "/by-occupation" },
+  { name: "상황별 가이드", href: "/life-situations" },
+  { name: "비교분석", href: "/comparisons" },
   { name: "서식다운로드", href: "/forms" },
 ];
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+        setMoreOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md">
@@ -38,6 +56,29 @@ export function Header() {
               {item.name}
             </Link>
           ))}
+          <div ref={moreRef} className="relative">
+            <button
+              onClick={() => setMoreOpen(!moreOpen)}
+              className="inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
+            >
+              더보기
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform ${moreOpen ? "rotate-180" : ""}`} />
+            </button>
+            {moreOpen && (
+              <div className="absolute right-0 top-full mt-1 w-44 rounded-xl border border-gray-200 bg-white py-1 shadow-lg">
+                {moreItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMoreOpen(false)}
+                    className="block px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-gray-900"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
           <a
             href="/#calculator"
             className="ml-2 inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
@@ -61,7 +102,7 @@ export function Header() {
       {mobileOpen && (
         <nav className="border-t bg-white px-4 pb-4 pt-2 md:hidden">
           <div className="flex flex-col gap-1">
-            {navItems.map((item) => (
+            {[...navItems, ...moreItems].map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

@@ -6,6 +6,9 @@ import { hub as 지급액Hub, spokes as 지급액Spokes } from "./지급액";
 import { hub as 신청기간Hub, spokes as 신청기간Spokes } from "./신청기간";
 import { hub as 자녀장려금Hub, spokes as 자녀장려금Spokes } from "./자녀장려금";
 import { hub as 절세팁Hub, spokes as 절세팁Spokes } from "./절세팁";
+import { hub as 직업별가이드Hub, spokes as 직업별가이드Spokes } from "./직업별가이드";
+import { hub as 상황별가이드Hub, spokes as 상황별가이드Spokes } from "./상황별가이드";
+import { hub as 비교분석Hub, spokes as 비교분석Spokes } from "./비교분석";
 
 export const hubArticles: Record<string, HubArticle> = {
   eligibility: 신청자격Hub,
@@ -14,6 +17,9 @@ export const hubArticles: Record<string, HubArticle> = {
   schedule: 신청기간Hub,
   "child-tax-credit": 자녀장려금Hub,
   "tax-tips": 절세팁Hub,
+  "by-occupation": 직업별가이드Hub,
+  "life-situations": 상황별가이드Hub,
+  comparisons: 비교분석Hub,
 };
 
 export const spokeArticles: Record<string, Record<string, SpokeArticle>> = {
@@ -23,6 +29,9 @@ export const spokeArticles: Record<string, Record<string, SpokeArticle>> = {
   schedule: 신청기간Spokes,
   "child-tax-credit": 자녀장려금Spokes,
   "tax-tips": 절세팁Spokes,
+  "by-occupation": 직업별가이드Spokes,
+  "life-situations": 상황별가이드Spokes,
+  comparisons: 비교분석Spokes,
 };
 
 export function getHubArticle(

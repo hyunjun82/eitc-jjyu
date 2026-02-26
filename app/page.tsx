@@ -30,7 +30,7 @@ export default function HomePage() {
         <h2 className="text-xl font-bold text-gray-900 mb-8">
           카테고리별 가이드
         </h2>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {categories.map((cat) => {
             const hub = hubArticles[cat.slug];
             if (!hub) return null;
