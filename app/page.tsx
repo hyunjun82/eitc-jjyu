@@ -87,7 +87,7 @@ export default function HomePage() {
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex justify-between">
                   <span>반기 신청 (하반기)</span>
-                  <span className="font-semibold">3월 1일 ~ 17일</span>
+                  <span className="font-semibold">3월 1일 ~ 16일</span>
                 </li>
                 <li className="flex justify-between">
                   <span>정기 신청</span>
