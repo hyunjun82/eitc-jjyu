@@ -109,7 +109,7 @@ export async function generateMetadata({
       locale: "ko_KR",
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: article.title,
       description: article.metaDescription,
     },
