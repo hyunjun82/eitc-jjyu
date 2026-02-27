@@ -68,7 +68,7 @@ function calcEITC(
     peakEnd = 14000000;
   } else {
     maxCredit = 3300000;
-    incomeLimit = 38000000;
+    incomeLimit = 44000000;
     peakStart = 8000000;
     peakEnd = 17000000;
   }
@@ -301,7 +301,7 @@ export function EITCCalculator() {
       childCredit = calcChildCredit(householdType as "홑벌이" | "맞벌이", state.childCount, totalIncome, state.assetRange);
     }
 
-    const semiAnnualRatio = tab === "반기" ? 0.5 : 1;
+    const semiAnnualRatio = tab === "반기" ? 0.35 : 1;
 
     setResult({
       householdType: householdType + "가구",
@@ -546,6 +546,11 @@ export function EITCCalculator() {
                       입력하신 조건으로는 수급 대상이 아닐 수 있어요. 자격 요건을 다시 확인해 주세요.
                     </p>
                   )}
+                  {tab === "반기" && result.total > 0 && (
+                    <p className="mt-3 rounded-lg bg-blue-50 px-4 py-2.5 text-sm text-blue-700">
+                      반기 신청 시 산정액의 35%가 선지급되며, 나머지는 정산을 거쳐 추가 지급돼요.
+                    </p>
+                  )}
                   <p className="mt-3 text-xs text-gray-400">
                     * 본 계산 결과는 참고용이며, 실제 지급액은 국세청 심사 결과에 따라 달라질 수 있습니다.
                   </p>
@@ -583,7 +588,7 @@ export function EITCCalculator() {
                     <td className="px-5 py-3 font-medium text-gray-900">총소득 기준</td>
                     <td className="px-5 py-3">2,200만원 미만</td>
                     <td className="px-5 py-3">3,200만원 미만</td>
-                    <td className="px-5 py-3">3,800만원 미만</td>
+                    <td className="px-5 py-3">4,400만원 미만</td>
                   </tr>
                   <tr>
                     <td className="px-5 py-3 font-medium text-gray-900">재산 기준</td>

@@ -30,7 +30,7 @@ export default function HomePage() {
         <h2 className="text-xl font-bold text-gray-900 mb-8">
           카테고리별 가이드
         </h2>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {categories.map((cat) => {
             const hub = hubArticles[cat.slug];
             if (!hub) return null;
@@ -86,16 +86,16 @@ export default function HomePage() {
               </div>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex justify-between">
-                  <span>정기 신청</span>
-                  <span className="font-semibold">5월 1일 ~ 6월 2일</span>
+                  <span>반기 신청 (하반기)</span>
+                  <span className="font-semibold">3월 1일 ~ 16일</span>
                 </li>
                 <li className="flex justify-between">
-                  <span>반기 신청 (상반기)</span>
-                  <span className="font-semibold">9월 1일 ~ 15일</span>
+                  <span>정기 신청</span>
+                  <span className="font-semibold">5월 1일 ~ 6월 1일</span>
                 </li>
                 <li className="flex justify-between">
                   <span>기한후 신청</span>
-                  <span className="font-semibold">6월 3일 ~ 12월 1일</span>
+                  <span className="font-semibold">6월 2일 ~ 11월 30일</span>
                 </li>
               </ul>
             </div>

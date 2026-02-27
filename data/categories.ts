@@ -43,4 +43,25 @@ export const categories: Category[] = [
     description: "중복수령, 환급계좌, 사후관리 꿀팁",
     count: 3,
   },
+  {
+    name: "직업별 가이드",
+    slug: "by-occupation",
+    icon: "🔧",
+    description: "배달원, 택시기사, 프리랜서 등 직업별 신청 가이드",
+    count: 10,
+  },
+  {
+    name: "상황별 가이드",
+    slug: "life-situations",
+    icon: "🏠",
+    description: "이혼, 장애, 한부모 등 특수상황별 가이드",
+    count: 10,
+  },
+  {
+    name: "비교분석",
+    slug: "comparisons",
+    icon: "⚖️",
+    description: "기초생활보장, 실업급여 등 다른 제도와의 비교",
+    count: 6,
+  },
 ];
