@@ -38,6 +38,7 @@ export interface VisualData {
 
 export interface ArticleSection {
   title: string;
+  answer?: string;
   content: string;
   infoItems?: InfoItem[];
   visual?: VisualData;
