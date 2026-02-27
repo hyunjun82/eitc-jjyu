@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "장려금정보 - 2026 근로장려금 신청 가이드",
     description:
       "2026년 근로장려금 신청자격, 신청방법, 지급액, 신청기간 총정리. 자녀장려금까지 한눈에 확인하세요.",

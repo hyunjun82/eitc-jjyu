@@ -7,14 +7,6 @@ interface ShareButtonsProps {
   title: string;
 }
 
-function KakaoIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-      <path d="M12 3C6.48 3 2 6.58 2 11.04c0 2.88 1.9 5.41 4.75 6.84l-.97 3.56c-.07.26.2.47.44.33l4.26-2.82c.49.06.99.09 1.52.09 5.52 0 10-3.58 10-8S17.52 3 12 3" />
-    </svg>
-  );
-}
-
 function NaverIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -32,13 +24,6 @@ function ThreadsIcon({ className }: { className?: string }) {
 }
 
 const SHARE_PLATFORMS = [
-  {
-    name: "카카오톡",
-    icon: KakaoIcon,
-    color: "hover:bg-[#FEE500] hover:text-[#3C1E1E]",
-    getUrl: (url: string) =>
-      `https://story.kakao.com/share?url=${encodeURIComponent(url)}`,
-  },
   {
     name: "네이버",
     icon: NaverIcon,
