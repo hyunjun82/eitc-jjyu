@@ -10,6 +10,7 @@ import { CategorySidebar } from "@/components/CategorySidebar";
 import { ShareButtons } from "@/components/ShareButtons";
 import { AuthorBio } from "@/components/AuthorBio";
 import { KakaoChannelCTA } from "@/components/KakaoChannelCTA";
+import { KakaoChannelBanner } from "@/components/KakaoChannelBanner";
 import { AdUnit } from "@/components/AdUnit";
 
 import { CalculatorCTA } from "@/components/CalculatorCTA";
@@ -203,6 +204,11 @@ export default async function SpokePage({ params }: PageProps) {
       <div className="mx-auto max-w-5xl px-4 lg:flex lg:gap-8">
         {/* Main Column */}
         <div className="flex-1 max-w-3xl">
+
+      {/* 카카오 채널 배너 - 본문 상단 */}
+      <div className="mt-6">
+        <KakaoChannelBanner />
+      </div>
 
       {/* Article Sections */}
       <article>

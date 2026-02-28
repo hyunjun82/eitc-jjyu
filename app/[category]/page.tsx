@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getHubArticle } from "@/data/articles";
 import { categories } from "@/data/categories";
 import { Badge } from "@/components/ui/badge";
+import { KakaoChannelBanner } from "@/components/KakaoChannelBanner";
 import { ChevronRight, ArrowLeft } from "lucide-react";
 
 interface PageProps {
@@ -103,6 +104,11 @@ export default async function HubPage({ params }: PageProps) {
             </Link>
           ))}
         </div>
+      </section>
+
+      {/* 카카오 채널 배너 */}
+      <section className="mx-auto max-w-4xl px-4 pt-2 pb-4">
+        <KakaoChannelBanner />
       </section>
 
       {/* Back Link */}
