@@ -5,6 +5,16 @@ import { Facebook, Twitter, Instagram, Copy, Check, Share2 } from "lucide-react"
 
 interface ShareButtonsProps {
   title: string;
+  description?: string;
+  imageUrl?: string;
+}
+
+function KakaoIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+      <path d="M12 3C6.477 3 2 6.463 2 10.691c0 2.724 1.8 5.113 4.508 6.459-.2.728-.723 2.639-.828 3.049-.128.502.184.495.387.36.16-.107 2.545-1.727 3.576-2.429.776.112 1.575.171 2.357.171 5.523 0 10-3.463 10-7.691S17.523 3 12 3z" />
+    </svg>
+  );
 }
 
 function NaverIcon({ className }: { className?: string }) {
@@ -60,7 +70,7 @@ const SHARE_PLATFORMS = [
   },
 ] as const;
 
-export function ShareButtons({ title }: ShareButtonsProps) {
+export function ShareButtons({ title, description, imageUrl }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -80,6 +90,26 @@ export function ShareButtons({ title }: ShareButtonsProps) {
     }
   };
 
+  const handleKakaoShare = () => {
+    if (!window.Kakao?.isInitialized()) return;
+    const url = window.location.href;
+    window.Kakao.Share.sendDefault({
+      objectType: "feed",
+      content: {
+        title,
+        description: description || "장려금정보에서 확인하세요",
+        imageUrl: imageUrl || `${window.location.origin}/og-default.png`,
+        link: { mobileWebUrl: url, webUrl: url },
+      },
+      buttons: [
+        {
+          title: "자세히 보기",
+          link: { mobileWebUrl: url, webUrl: url },
+        },
+      ],
+    });
+  };
+
   const handleShare = (platform: (typeof SHARE_PLATFORMS)[number]) => {
     if (platform.getUrl === null) {
       handleCopy();
@@ -96,6 +126,17 @@ export function ShareButtons({ title }: ShareButtonsProps) {
         <Share2 className="inline h-3.5 w-3.5 mr-1" />
         공유
       </span>
+
+      {/* 카카오톡 공유 (SDK) */}
+      <button
+        onClick={handleKakaoShare}
+        className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 transition-all duration-200 hover:bg-[#FEE500] hover:text-[#3C1E1E]"
+        title="카카오톡에 공유"
+        aria-label="카카오톡에 공유"
+      >
+        <KakaoIcon className="h-4 w-4" />
+      </button>
+
       {SHARE_PLATFORMS.map((platform) => {
         const Icon = platform.icon;
         return (
