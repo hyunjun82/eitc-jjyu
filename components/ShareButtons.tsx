@@ -9,6 +9,8 @@ interface ShareButtonsProps {
   imageUrl?: string;
 }
 
+const KAKAO_CHANNEL_ID = "_BmwqX";
+
 function KakaoIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -170,6 +172,23 @@ export function ShareButtons({ title, description, imageUrl }: ShareButtonsProps
           복사 완료!
         </span>
       )}
+
+      {/* 카카오 채널 친구추가 */}
+      <button
+        onClick={() => {
+          if (window.Kakao?.isInitialized()) {
+            window.Kakao.Channel.addChannel({ channelPublicId: KAKAO_CHANNEL_ID });
+          } else {
+            window.open(`https://pf.kakao.com/${KAKAO_CHANNEL_ID}`, "_blank");
+          }
+        }}
+        className="ml-1 flex items-center gap-1 rounded-full border border-yellow-300 bg-[#FEE500] px-2.5 py-1 text-xs font-medium text-[#3C1E1E] transition-all hover:shadow-md"
+        title="카카오 채널 친구추가"
+        aria-label="카카오 채널 친구추가"
+      >
+        <KakaoIcon className="h-3.5 w-3.5" />
+        채널 추가
+      </button>
     </div>
   );
 }
