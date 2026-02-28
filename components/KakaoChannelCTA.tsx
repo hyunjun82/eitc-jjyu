@@ -11,14 +11,6 @@ export function KakaoChannelCTA() {
     }
   };
 
-  const handleChat = () => {
-    if (window.Kakao?.isInitialized()) {
-      window.Kakao.Channel.chat({ channelPublicId: KAKAO_CHANNEL_ID });
-    } else {
-      window.open(`https://pf.kakao.com/${KAKAO_CHANNEL_ID}/chat`, "_blank");
-    }
-  };
-
   return (
     <div className="my-8 rounded-xl border-2 border-[#FEE500] bg-[#FEE500]/10 px-5 py-5">
       <div className="flex items-center gap-3 mb-3">
@@ -34,20 +26,12 @@ export function KakaoChannelCTA() {
           </p>
         </div>
       </div>
-      <div className="flex gap-2">
-        <button
-          onClick={handleAddChannel}
-          className="flex-1 rounded-lg bg-[#FEE500] px-4 py-2.5 text-sm font-bold text-[#3C1E1E] transition-colors hover:bg-[#F5DC00]"
-        >
-          채널 추가
-        </button>
-        <button
-          onClick={handleChat}
-          className="flex-1 rounded-lg bg-[#3C1E1E] px-4 py-2.5 text-sm font-bold text-[#FEE500] transition-colors hover:bg-[#2D1616]"
-        >
-          채팅하기
-        </button>
-      </div>
+      <button
+        onClick={handleAddChannel}
+        className="w-full rounded-lg bg-[#FEE500] px-4 py-2.5 text-sm font-bold text-[#3C1E1E] transition-colors hover:bg-[#F5DC00]"
+      >
+        채널 추가
+      </button>
     </div>
   );
 }
