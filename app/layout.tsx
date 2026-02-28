@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { KakaoScript } from "@/components/KakaoScript";
+import { KakaoStickyBar } from "@/components/KakaoStickyBar";
 
 export const metadata: Metadata = {
   title: {
@@ -63,6 +64,7 @@ export default function RootLayout({
         <main className="min-h-[calc(100vh-140px)]">{children}</main>
         <Footer />
 
+        <KakaoStickyBar />
         <KakaoScript />
 
         <Script
