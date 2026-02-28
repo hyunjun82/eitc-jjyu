@@ -9,6 +9,7 @@ import { RelatedSpokes } from "@/components/RelatedSpokes";
 import { CategorySidebar } from "@/components/CategorySidebar";
 import { ShareButtons } from "@/components/ShareButtons";
 import { AuthorBio } from "@/components/AuthorBio";
+import { KakaoChannelCTA } from "@/components/KakaoChannelCTA";
 import { AdUnit } from "@/components/AdUnit";
 
 import { CalculatorCTA } from "@/components/CalculatorCTA";
@@ -259,6 +260,9 @@ export default async function SpokePage({ params }: PageProps) {
           <FAQSection items={article.faq} />
         </div>
       )}
+
+      {/* 카카오 채널 친구추가 CTA */}
+      <KakaoChannelCTA />
 
       {/* Author Bio */}
       <AuthorBio

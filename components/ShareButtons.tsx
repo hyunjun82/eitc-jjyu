@@ -7,6 +7,14 @@ interface ShareButtonsProps {
   title: string;
 }
 
+function KakaoIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+      <path d="M12 3C6.477 3 2 6.463 2 10.691c0 2.724 1.8 5.113 4.508 6.459-.2.728-.723 2.639-.828 3.049-.128.502.184.495.387.36.16-.107 2.545-1.727 3.576-2.429.776.112 1.575.171 2.357.171 5.523 0 10-3.463 10-7.691S17.523 3 12 3z" />
+    </svg>
+  );
+}
+
 function NaverIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -23,7 +31,22 @@ function ThreadsIcon({ className }: { className?: string }) {
   );
 }
 
-const SHARE_PLATFORMS = [
+type SharePlatform = {
+  name: string;
+  icon: React.ComponentType<{ className?: string }>;
+  color: string;
+  getUrl: ((url: string, title: string) => string) | null;
+  useNativeShare?: boolean;
+};
+
+const SHARE_PLATFORMS: SharePlatform[] = [
+  {
+    name: "카카오톡",
+    icon: KakaoIcon,
+    color: "hover:bg-[#FEE500] hover:text-[#3C1E1E]",
+    getUrl: null,
+    useNativeShare: true,
+  },
   {
     name: "네이버",
     icon: NaverIcon,
@@ -58,12 +81,12 @@ const SHARE_PLATFORMS = [
     color: "hover:bg-gradient-to-tr hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF] hover:text-white",
     getUrl: null,
   },
-] as const;
+];
 
 export function ShareButtons({ title }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = async () => {
+  const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
       setCopied(true);
@@ -80,9 +103,21 @@ export function ShareButtons({ title }: ShareButtonsProps) {
     }
   };
 
-  const handleShare = (platform: (typeof SHARE_PLATFORMS)[number]) => {
+  const handleShare = async (platform: SharePlatform) => {
+    if (platform.useNativeShare) {
+      if (navigator.share) {
+        try {
+          await navigator.share({ title, url: window.location.href });
+        } catch {
+          // user cancelled
+        }
+      } else {
+        copyToClipboard();
+      }
+      return;
+    }
     if (platform.getUrl === null) {
-      handleCopy();
+      copyToClipboard();
       return;
     }
     const url = window.location.href;
@@ -112,7 +147,7 @@ export function ShareButtons({ title }: ShareButtonsProps) {
       })}
 
       <button
-        onClick={handleCopy}
+        onClick={copyToClipboard}
         className={`flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-200 ${
           copied
             ? "border-blue-300 bg-blue-50 text-blue-600"
