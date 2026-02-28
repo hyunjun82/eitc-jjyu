@@ -29,7 +29,7 @@ export function KakaoStickyBar() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 safe-bottom">
-      <div className="mx-auto max-w-3xl px-4 pb-3">
+      <div className="mx-auto max-w-5xl px-4 pb-3">
         <div className="flex items-center gap-3 rounded-xl border border-yellow-300 bg-[#FEE500] px-4 py-2.5 shadow-lg">
           <svg
             viewBox="0 0 24 24"
