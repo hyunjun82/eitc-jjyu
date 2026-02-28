@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { EITCCalculator } from "@/components/EITCCalculator";
 import { CategoryCard } from "@/components/CategoryCard";
+import { KakaoChannelBanner } from "@/components/KakaoChannelBanner";
 import { categories } from "@/data/categories";
 import { hubArticles } from "@/data/articles";
 import { Landmark, Calculator, CalendarCheck } from "lucide-react";
@@ -123,6 +124,13 @@ export default function HomePage() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 카카오 채널 */}
+      <section className="border-t">
+        <div className="mx-auto max-w-6xl px-4 py-10">
+          <KakaoChannelBanner />
         </div>
       </section>
 

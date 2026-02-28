@@ -9,6 +9,8 @@ import { RelatedSpokes } from "@/components/RelatedSpokes";
 import { CategorySidebar } from "@/components/CategorySidebar";
 import { ShareButtons } from "@/components/ShareButtons";
 import { AuthorBio } from "@/components/AuthorBio";
+import { KakaoChannelCTA } from "@/components/KakaoChannelCTA";
+import { KakaoChannelBanner } from "@/components/KakaoChannelBanner";
 import { AdUnit } from "@/components/AdUnit";
 
 import { CalculatorCTA } from "@/components/CalculatorCTA";
@@ -203,6 +205,11 @@ export default async function SpokePage({ params }: PageProps) {
         {/* Main Column */}
         <div className="flex-1 max-w-3xl">
 
+      {/* 카카오 채널 배너 - 본문 상단 */}
+      <div className="mt-6">
+        <KakaoChannelBanner />
+      </div>
+
       {/* Article Sections */}
       <article>
         {article.sections.map((section, i) => {
@@ -259,6 +266,9 @@ export default async function SpokePage({ params }: PageProps) {
           <FAQSection items={article.faq} />
         </div>
       )}
+
+      {/* 카카오 채널 친구추가 CTA */}
+      <KakaoChannelCTA />
 
       {/* Author Bio */}
       <AuthorBio

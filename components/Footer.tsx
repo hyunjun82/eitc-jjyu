@@ -1,9 +1,13 @@
 import Link from "next/link";
+import { KakaoChannelBanner } from "./KakaoChannelBanner";
 
 export function Footer() {
   return (
     <footer className="border-t bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 py-8">
+        {/* 카카오 채널 친구추가 배너 */}
+        <KakaoChannelBanner />
+
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-sm text-gray-500">
             장려금정보는 근로장려금 정보 제공 목적이며, 세무 상담을 대체하지 않습니다.
