@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+export const dynamic = 'force-static';
 export const alt = "장려금정보 - 2026 근로장려금 신청 가이드";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -16,7 +16,8 @@ export default function Image() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          background: "linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%)",
+          background:
+            "linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%)",
           fontFamily: "sans-serif",
         }}
       >
