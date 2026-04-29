@@ -1,0 +1,12 @@
+# robots.txt for 장려금정보
+User-agent: *
+Allow: /
+Allow: /_next/static/
+Disallow: /api/
+Disallow: /_next/image
+
+# Daum 웹마스터도구 인증
+DaumWebMasterTool:05e707c47431e356739a10506670ce75f99027ce6e9f94b0b43ec692a37dcd25:DnpaNaMIGPCwn0un5KS9mQ==
+
+# Sitemap
+Sitemap: https://eitc.jjyu.co.kr/sitemap.xml
